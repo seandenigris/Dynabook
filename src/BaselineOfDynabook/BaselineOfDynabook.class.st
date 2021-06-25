@@ -17,8 +17,12 @@ BaselineOfDynabook >> baseline: spec [
 		spec
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
+			baseline: 'SimplePersistence' with: [
+				spec repository: 'github://seandenigris/Simple-Persistence' ];
+			baseline: 'SmallWorld' with: [
+				spec repository: 'github://seandenigris/SmallWorld' ];
 			baseline: 'TheProjectProject' with: [
-				spec repository: 'github://seandenigris/The-Project-Project' ] ].
+				spec repository: 'gitlab://seandenigris/The-Project-Project' ] ].
 	
 	spec for: #GToolkit do: [ ]
 ]
