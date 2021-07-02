@@ -22,7 +22,8 @@ BaselineOfDynabook >> baseline: spec [
 			baseline: 'SmallWorld' with: [
 				spec repository: 'github://seandenigris/SmallWorld' ];
 			baseline: 'TheProjectProject' with: [
-				spec repository: 'gitlab://seandenigris/The-Project-Project' ] ].
+				spec repository: 'gitlab://seandenigris/The-Project-Project' ].
+		spec package: 'Dynabook-Persistence' with: [ spec requires: #('SimplePersistence') ] ].
 	
 	spec for: #GToolkit do: [ ]
 ]
