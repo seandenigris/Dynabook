@@ -16,6 +16,7 @@ DynabookDB class >> schema [
 	^ { 
 		ComputerWorldDB.
 		SmallWorldDB.
-		TheProjectProjectDB
+		TheProjectProjectDB.
+		VirtualStashDB
 	}.
 ]
