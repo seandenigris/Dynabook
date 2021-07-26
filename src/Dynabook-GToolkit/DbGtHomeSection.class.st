@@ -61,14 +61,6 @@ DbGtHomeSection >> bridgeButton [
 		description: 'Stop and then start PBApplication'.
 ]
 
-{ #category : #stencils }
-DbGtHomeSection >> coderButton [
-	^ GtToolButtonStencil new 
-		title: 'Coder';
-		icon: BrGlamorousVectorIcons largeBook;
-		action: [ :card | self error: 'how to?' ].
-]
-
 { #category : #'api - instantiation' }
 DbGtHomeSection >> create [
 	| sectionContainer |
@@ -80,6 +72,7 @@ DbGtHomeSection >> create [
 		addChild: self booksButton create;
 		addChild: self livingLibraryButton create;
 		addChild: self resourceLibraryButton create;
+		addChild: self dataButton create;
 		addChild: self bridgeButton create;
 		addChild: self baselineButton create;
 		addChild: self updateHomeButton create;
@@ -92,14 +85,14 @@ DbGtHomeSection >> create [
 { #category : #stencils }
 DbGtHomeSection >> dataButton [
 	^ GtToolButtonStencil new 
-		title: 'Data';
+		title: 'SP Data';
 		icon: BrGlamorousVectorIcons largeWindow;
 		action: [ :card | 
 			self
-				showSpaceWithTitle: 'Virtual Stash Data'
+				showSpaceWithTitle: 'Dynabook Data'
 				with:
 					(GtInspector
-						createOn: VirtualStashDB) maximized
+						createOn: DynabookDB) maximized
 				from: card ].
 ]
 
