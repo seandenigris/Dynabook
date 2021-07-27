@@ -37,7 +37,7 @@ BaselineOfDynabook >> baseline: spec [
 { #category : #accessing }
 BaselineOfDynabook >> customProjectAttributes [
 	^ self isGTImage
-			ifFalse: [ #() ]
+			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
 ]
 
