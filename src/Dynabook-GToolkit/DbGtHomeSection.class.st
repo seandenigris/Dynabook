@@ -1,13 +1,13 @@
 Class {
-	#name : #DbGtHomeSection,
-	#superclass : #GtHomeSection,
+	#name : 'DbGtHomeSection',
+	#superclass : 'GtHomeSection',
 	#instVars : [
 		'cardsContainer'
 	],
-	#category : #'Dynabook-GToolkit'
+	#category : 'Dynabook-GToolkit'
 }
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> addressBookButton [
 	^ GtToolButtonStencil new 
 		title: 'Address Book';
@@ -22,7 +22,7 @@ DbGtHomeSection >> addressBookButton [
 		description: 'Inspect default address book'.
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> baselineButton [
 	^ GtToolButtonStencil new 
 		title: 'Baseline';
@@ -35,7 +35,7 @@ DbGtHomeSection >> baselineButton [
 				from: card ]
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> booksButton [
 	^ GtToolButtonStencil new 
 		title: 'Books - Personal';
@@ -50,7 +50,7 @@ DbGtHomeSection >> booksButton [
 		description: 'Inspect personal books'.
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> bridgeButton [
 	^ GtToolButtonStencil new 
 		title: 'PBridge - Restart';
@@ -61,7 +61,7 @@ DbGtHomeSection >> bridgeButton [
 		description: 'Stop and then start PBApplication'.
 ]
 
-{ #category : #'api - instantiation' }
+{ #category : 'api - instantiation' }
 DbGtHomeSection >> create [
 	| sectionContainer |
 	sectionContainer := self newSectionContainer.
@@ -71,6 +71,7 @@ DbGtHomeSection >> create [
 		addChild: self addressBookButton create;
 		addChild: self booksButton create;
 		addChild: self livingLibraryButton create;
+		addChild: self projectListButton create;
 		addChild: self resourceLibraryButton create;
 		addChild: self dataButton create;
 		addChild: self bridgeButton create;
@@ -82,7 +83,7 @@ DbGtHomeSection >> create [
 	^ sectionContainer
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> dataButton [
 	^ GtToolButtonStencil new 
 		title: 'SP Data';
@@ -96,7 +97,7 @@ DbGtHomeSection >> dataButton [
 				from: card ].
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> livingLibraryButton [
 	^ GtToolButtonStencil new 
 		title: 'LL Library';
@@ -111,7 +112,22 @@ DbGtHomeSection >> livingLibraryButton [
 		description: 'Inspect default library'.
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
+DbGtHomeSection >> projectListButton [
+	^ GtToolButtonStencil new 
+		title: 'Projects';
+		icon: BrGlamorousVectorIcons clipboard;
+		action: [ :card | 
+			self
+				showSpaceWithTitle: 'Projects'
+				with:
+					(GtInspector
+						createOn: PpProjectList uniqueInstance) maximized
+				from: card ];
+		description: 'Inspect project list'.
+]
+
+{ #category : 'stencils' }
 DbGtHomeSection >> resourceLibraryButton [
 	^ GtToolButtonStencil new 
 		title: 'Resource Library';
@@ -126,7 +142,7 @@ DbGtHomeSection >> resourceLibraryButton [
 		description: 'Inspect default library'.
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeSection >> updateHomeButton [
 	^ GtToolButtonStencil new 
 		title: 'Home Sections - Update';
