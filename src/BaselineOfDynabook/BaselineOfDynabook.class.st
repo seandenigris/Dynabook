@@ -17,10 +17,10 @@ BaselineOfDynabook >> baseline: spec [
 		spec
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
-			baseline: 'ComputerWorld' with: [
-				spec repository: 'github://seandenigris/Computer-World' ];
 			baseline: 'DynaChef' with: [
 				spec repository: 'github://seandenigris/DynaChef' ];
+			baseline: 'Ideas' with: [
+ 				spec repository: 'github://seandenigris/ideas' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
