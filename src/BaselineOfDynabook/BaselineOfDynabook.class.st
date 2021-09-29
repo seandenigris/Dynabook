@@ -27,6 +27,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/SmallWorld' ];
 			baseline: 'TheProjectProject' with: [
 				spec repository: 'github://seandenigris/The-Project-Project' ];
+			baseline: 'Ukulele' with: [
+				spec repository: 'github://seandenigris/Ukulele-Pharo' ];
 			baseline: 'VirtualStash' with: [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec package: 'Dynabook-Persistence' with: [ spec requires: #('SimplePersistence') ] ].

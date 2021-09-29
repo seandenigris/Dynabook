@@ -21,6 +21,7 @@ DynabookDB class >> schema [
 		add: IdeasDB;
 		add: SmallWorldDB;
 		add: TheProjectProjectDB;
+		add: UkuleleDB;
 		add: VirtualStashDB;
 		yourself
 ]
