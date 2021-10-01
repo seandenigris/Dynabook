@@ -21,6 +21,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/DynaChef' ];
 			baseline: 'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
+			baseline: 'Mushrooms' with: [
+				spec repository: 'github://seandenigris/Mushrooms' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
