@@ -1,15 +1,15 @@
 Class {
-	#name : 'BaselineOfDynabook',
-	#superclass : 'BaselineOf',
-	#category : 'BaselineOfDynabook'
+	#name : #BaselineOfDynabook,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfDynabook
 }
 
-{ #category : 'configuration' }
+{ #category : #configuration }
 BaselineOfDynabook class >> dataFolder [
 	^ FileLocator dynabookData / 'Dynabook'
 ]
 
-{ #category : 'baseline' }
+{ #category : #baseline }
 BaselineOfDynabook >> baseline: spec [
   <baseline>
 
@@ -21,8 +21,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/DynaChef' ];
 			baseline: 'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
-			baseline: 'Mushrooms' with: [
-				spec repository: 'github://seandenigris/Mushrooms' ];
+			baseline: 'Nature' with: [
+				spec repository: 'github://seandenigris/Nature' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
@@ -40,21 +40,21 @@ BaselineOfDynabook >> baseline: spec [
 		spec package: 'Dynabook-GToolkit' ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 BaselineOfDynabook >> customProjectAttributes [
 	^ self isGTImage
 			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
 
 	"We've incorporated the relevant parts into our home section"
 	(GtHome>>#virtualStashSection) removeFromSystem
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 BaselineOfDynabook >> isGTImage [
 	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'GToolkit-' ]
 ]
