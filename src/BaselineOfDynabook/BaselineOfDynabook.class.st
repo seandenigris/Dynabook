@@ -19,6 +19,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Computer-World' ];
 			baseline: 'DynaChef' with: [
 				spec repository: 'github://seandenigris/DynaChef' ];
+			baseline: 'FlashcardsSt' with: [
+				spec repository: 'github://seandenigris/Flashcards' ];
 			baseline: 'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
 			baseline: 'Nature' with: [
