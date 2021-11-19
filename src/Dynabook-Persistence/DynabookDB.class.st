@@ -1,16 +1,16 @@
 Class {
-	#name : 'DynabookDB',
-	#superclass : 'SpFileDatabase',
+	#name : #DynabookDB,
+	#superclass : #SpFileDatabase,
 	#category : 'Dynabook-Persistence'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 DynabookDB class >> backupDirectoryParent [
 	
 	^ FileLocator dynabookData / 'Dynabook'
 ]
 
-{ #category : 'loading/saving' }
+{ #category : #'loading/saving' }
 DynabookDB class >> schema [
 
 	| result |
@@ -18,6 +18,7 @@ DynabookDB class >> schema [
 	(Smalltalk globals hasClassNamed: #DynaChefDB)
 		ifTrue: [ result add: #DynaChefDB asClass ].
 	^ result
+		add: FlashcardsStDB;
 		add: IdeasDB;
 		add: SmallWorldDB;
 		add: TheProjectProjectDB;
