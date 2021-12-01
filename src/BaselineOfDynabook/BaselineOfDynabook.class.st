@@ -72,7 +72,7 @@ BaselineOfDynabook class >> readme [
 	
 	template := '{basicReadme}
 
-#Components	
+# Components	
 The following projects are my core components:
 {componentList}'.
 
