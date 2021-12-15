@@ -69,7 +69,7 @@ While there may be no legal means for me to enforce the above given that this co
 # Components	
 The following projects are my core components:
 - [Nature](https://github.com/seandenigris/Nature) - A naturalist's companion, focused on identifying and logging plant and mushrooms.
-- [Resources Live](https://github.com/seandenigris/ResourcesLive) - Free users to communicate with *objects* instead of managing *files*. Files conflate *what* a thing is with *where* it is. We take can of the boring location part for you. So you can "play an mp3" instead of "opening an mp3 file in a player app". Nicer, no?
+- [Resources Live](https://github.com/seandenigris/ResourcesLive) - Free users to communicate with *objects* instead of managing *files*. Files conflate *what* a thing is with *where* it is. We take care of the boring location part for you. So you can "play an mp3" instead of "opening an mp3 file in a player app". Nicer, no?
 - [The Project Project](https://github.com/SeanDeNigris/The-Project-Project) - Project Management unleashed from an "application" stovepipe, running on GToolkit (Smalltalk)
 - [Flashcards St](https://github.com/seandenigris/Flashcards-St) - Unleash flashcards from simple text on "front" and "back". Any object can be `material` for multiple cards (or card types)
 - [Ukulele](https://github.com/seandenigris/Ukulele-Pharo) - TLDR: A companion in learning and playing, in a live system of supporting objects e.g. media library, bookmarking, contact management (e.g. for teachers and peers). Currently manages things related to playing e.g. songs, lessons, tabs.
