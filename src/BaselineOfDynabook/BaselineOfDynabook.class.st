@@ -3,7 +3,7 @@ Alan Kay's Dynabook [2] dream is often explored from the perspective of creating
 
 You can start by exploring my core components (start with the class comments of the BaslineOfXyzs):
 ```smalltalk
-BaselineOfDynabook coreProjects
+BaselineOfDynabook coreBaselines
 ```
 
 ##What is a Dynabook?
