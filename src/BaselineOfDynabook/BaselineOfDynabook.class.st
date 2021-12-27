@@ -96,6 +96,8 @@ BaselineOfDynabook >> baseline: spec [
 
 	spec for: #'common' do: [
 		spec
+			baseline: 'BabySignLanguage' with: [
+				spec repository: 'github://seandenigris/Baby-Sign-Language' ];
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
 			baseline: 'DynaChef' with: [

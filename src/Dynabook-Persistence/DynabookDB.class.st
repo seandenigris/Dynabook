@@ -14,7 +14,10 @@ DynabookDB class >> backupDirectoryParent [
 DynabookDB class >> schema [
 
 	| result |
-	result := OrderedCollection with: ComputerWorldDB.
+	result := OrderedCollection new.
+	result
+		add: BabySignLanguageDB; 
+		add: ComputerWorldDB.
 	(Smalltalk globals hasClassNamed: #DynaChefDB)
 		ifTrue: [ result add: #DynaChefDB asClass ].
 	^ result
