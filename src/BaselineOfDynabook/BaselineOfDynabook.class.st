@@ -120,9 +120,7 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec package: 'Dynabook-Persistence' with: [ spec requires: #('SimplePersistence') ] ].
 	
-	spec for: #GToolkit do: [
-		spec postLoadDoIt: #gtPostLoad.
-		spec package: 'Dynabook-GToolkit' ]
+	spec for: #GToolkit do: [ spec package: 'Dynabook-GToolkit' ]
 ]
 
 { #category : #accessing }
@@ -130,13 +128,6 @@ BaselineOfDynabook >> customProjectAttributes [
 	^ self isGTImage
 			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
-]
-
-{ #category : #accessing }
-BaselineOfDynabook >> gtPostLoad [
-
-	"We've incorporated the relevant parts into our home section"
-	(GtHome>>#virtualStashSection) removeFromSystem
 ]
 
 { #category : #testing }
