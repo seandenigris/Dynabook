@@ -1,13 +1,22 @@
 Class {
-	#name : 'DbGtHomeSection',
-	#superclass : 'GtHomeSection',
+	#name : #DbGtHomeSection,
+	#superclass : #GtHomeSection,
 	#instVars : [
 		'cardsContainer'
 	],
-	#category : 'Dynabook-GToolkit'
+	#classVars : [
+		'DataDB'
+	],
+	#category : #'Dynabook-GToolkit'
 }
 
-{ #category : 'stencils' }
+{ #category : #accessing }
+DbGtHomeSection class >> dataDB: anSpFileDatabaseClass [
+
+	DataDB := anSpFileDatabaseClass
+]
+
+{ #category : #stencils }
 DbGtHomeSection >> addressBookButton [
 	^ GtToolButtonStencil new 
 		title: 'Address Book';
@@ -22,7 +31,7 @@ DbGtHomeSection >> addressBookButton [
 		description: 'Inspect default address book'.
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> baselineButton [
 	^ GtToolButtonStencil new 
 		title: 'Baseline';
@@ -35,7 +44,7 @@ DbGtHomeSection >> baselineButton [
 				from: card ]
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> booksButton [
 	^ GtToolButtonStencil new 
 		title: 'Books - Personal';
@@ -50,7 +59,7 @@ DbGtHomeSection >> booksButton [
 		description: 'Inspect personal books'.
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> bridgeButton [
 	^ GtToolButtonStencil new 
 		title: 'PBridge - Restart';
@@ -61,7 +70,7 @@ DbGtHomeSection >> bridgeButton [
 		description: 'Stop and then start PBApplication'.
 ]
 
-{ #category : 'api - instantiation' }
+{ #category : #'api - instantiation' }
 DbGtHomeSection >> create [
 	| sectionContainer |
 	sectionContainer := self newSectionContainer.
@@ -83,7 +92,7 @@ DbGtHomeSection >> create [
 	^ sectionContainer
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> dataButton [
 	^ GtToolButtonStencil new 
 		title: 'SP Data';
@@ -93,11 +102,16 @@ DbGtHomeSection >> dataButton [
 				showSpaceWithTitle: 'Dynabook Data'
 				with:
 					(GtInspector
-						createOn: DynabookDB) maximized
+						createOn: self dataDB) maximized
 				from: card ].
 ]
 
-{ #category : 'stencils' }
+{ #category : #accessing }
+DbGtHomeSection >> dataDB [
+	^ DataDB ifNil: [ DynabookDB ]
+]
+
+{ #category : #stencils }
 DbGtHomeSection >> livingLibraryButton [
 	^ GtToolButtonStencil new 
 		title: 'LL Library';
@@ -112,7 +126,7 @@ DbGtHomeSection >> livingLibraryButton [
 		description: 'Inspect default library'.
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> projectListButton [
 	^ GtToolButtonStencil new 
 		title: 'Projects';
@@ -127,7 +141,7 @@ DbGtHomeSection >> projectListButton [
 		description: 'Inspect project list'.
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> resourceLibraryButton [
 	^ GtToolButtonStencil new 
 		title: 'Resource Library';
@@ -142,7 +156,7 @@ DbGtHomeSection >> resourceLibraryButton [
 		description: 'Inspect default library'.
 ]
 
-{ #category : 'stencils' }
+{ #category : #stencils }
 DbGtHomeSection >> updateHomeButton [
 	^ GtToolButtonStencil new 
 		title: 'Home Sections - Update';
