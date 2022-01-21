@@ -135,11 +135,22 @@ BaselineOfDynabook >> customProjectAttributes [
 
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
-	PpLeEventPageType modelReferenceBuilder: [ 
+	QuLeTransciptPageType modelReferenceBuilder: [ 
 		DbObjectUIDReference new
 			sourceClass: PpEventLog;
 			collectionGetter: #events;
-			yourself ]
+			yourself ].
+			
+	QuLeSources providers: { 
+		QuLeSourceProvider new
+			model: PpEventLog uniqueInstance;
+			sourceCollectionGetter: #events;
+			yourself.
+		QuLeSourceProvider new
+			model: LlLibrary uniqueInstance;
+			sourceCollectionGetter: #works;
+			yourself
+	}.
 ]
 
 { #category : #testing }
