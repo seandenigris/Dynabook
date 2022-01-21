@@ -120,7 +120,10 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec package: 'Dynabook-Persistence' with: [ spec requires: #('SimplePersistence') ] ].
 	
-	spec for: #GToolkit do: [ spec package: 'Dynabook-GToolkit' ]
+	spec for: #GToolkit do: [ 
+		spec 
+			postLoadDoIt: #gtPostLoad;
+			package: 'Dynabook-GToolkit' ]
 ]
 
 { #category : #accessing }
@@ -128,6 +131,15 @@ BaselineOfDynabook >> customProjectAttributes [
 	^ self isGTImage
 			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
+]
+
+{ #category : #accessing }
+BaselineOfDynabook >> gtPostLoad [
+	PpLeEventPageType modelReferenceBuilder: [ 
+		DbObjectUIDReference new
+			sourceClass: PpEventLog;
+			collectionGetter: #events;
+			yourself ]
 ]
 
 { #category : #testing }
