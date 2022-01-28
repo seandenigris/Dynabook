@@ -118,7 +118,9 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Ukulele-Pharo' ];
 			baseline: 'VirtualStash' with: [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
-		spec package: 'Dynabook-Persistence' with: [ spec requires: #('SimplePersistence') ] ].
+		spec
+			package: 'Dynabook-Core' with: [ spec requires: #('SimplePersistence') ];
+			package: 'Dynabook-Persistence' with: [ spec requires: #('Dynabook-Core' 'SimplePersistence') ] ].
 	
 	spec for: #GToolkit do: [ 
 		spec 

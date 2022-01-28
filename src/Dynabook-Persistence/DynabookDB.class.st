@@ -23,6 +23,7 @@ DynabookDB class >> schema [
 	^ result
 		add: FlashcardsStDB;
 		add: IdeasDB;
+		add: LivingLibraryDB;
 		add: SmallWorldDB;
 		add: TheProjectProjectDB;
 		add: UkuleleDB;
