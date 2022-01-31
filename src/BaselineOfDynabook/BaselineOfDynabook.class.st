@@ -151,6 +151,7 @@ BaselineOfDynabook >> gtPostLoad [
 					collectionGetter: #works;
 					yourself ].
 			
+	"Can't work here unless lazily evaluated because we didn't load the data in yet
 	QuLeSources providers: { 
 		QuLeSourceProvider new
 			model: PpEventLog uniqueInstance;
@@ -160,7 +161,7 @@ BaselineOfDynabook >> gtPostLoad [
 			model: LlLibrary uniqueInstance;
 			sourceCollectionGetter: #works;
 			yourself
-	}.
+	}."
 ]
 
 { #category : #testing }
