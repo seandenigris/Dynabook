@@ -13,3 +13,10 @@ PpEvent >> ensureRecording [
 PpEvent >> hasRecording [
 	^ self hasProperty: #recording
 ]
+
+{ #category : #'*Dynabook-Core' }
+PpEvent >> newPlayer [
+	^ self hasRecording
+		ifTrue: [ self ensureRecording newPlayer ]
+		ifFalse: [ PpLivePlayer new ]
+]
