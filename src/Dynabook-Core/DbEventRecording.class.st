@@ -28,6 +28,11 @@ DbEventRecording >> event: anObject [
 ]
 
 { #category : #accessing }
+DbEventRecording >> participants [
+	^ self event participants
+]
+
+{ #category : #accessing }
 DbEventRecording >> title [
 	^ self event displayString
 ]
