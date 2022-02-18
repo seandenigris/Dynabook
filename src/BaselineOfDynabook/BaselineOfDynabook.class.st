@@ -137,7 +137,7 @@ BaselineOfDynabook >> customProjectAttributes [
 
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
-	QuLeTransciptPageType 
+	QuLeTranscriptPageType 
 		modelReferenceForClass: PpEvent 
 			builder: [ 
 				DbObjectUIDReference new
