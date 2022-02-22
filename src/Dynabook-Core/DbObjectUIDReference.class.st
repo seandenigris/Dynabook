@@ -32,7 +32,7 @@ DbObjectUIDReference >> object [
 
 	| objCollection |
 	objCollection := self source perform: self collectionGetter.
-	^ objCollection detect: [ :e | e uuid = uid ]
+	^ objCollection detect: [ :e | e uuid = uid ] ifNone: [ nil ]
 ]
 
 { #category : #accessing }
