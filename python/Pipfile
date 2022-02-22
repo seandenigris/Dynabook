@@ -12,6 +12,7 @@ msgpack = "*"
 fuzzywuzzy = "*"
 titlecase = "*"
 playwright = "*"
+nextstep-plist = "*"
 
 [requires]
 python_version = "3.10"
