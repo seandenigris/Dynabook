@@ -1,6 +1,6 @@
 Class {
 	#name : #DbObjectUIDReference,
-	#superclass : #MAObjectUIDReference,
+	#superclass : #OlObjectUIDReference,
 	#instVars : [
 		'collectionGetter',
 		'sourceClassName',
