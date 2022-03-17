@@ -110,8 +110,6 @@ BaselineOfDynabook >> baseline: spec [
  				spec repository: 'github://seandenigris/ideas' ];
 			baseline: 'Nature' with: [
 				spec repository: 'github://seandenigris/Nature' ];
-			baseline: 'ObjectiveLepiter' with: [
-				spec repository: 'github://seandenigris/Objective-Lepiter' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
@@ -127,6 +125,9 @@ BaselineOfDynabook >> baseline: spec [
 			package: 'Dynabook-Persistence' with: [ spec requires: #('Dynabook-Core' 'SimplePersistence') ] ].
 	
 	spec for: #GToolkit do: [ 
+		spec
+			baseline: 'ObjectiveLepiter' with: [
+				spec repository: 'github://seandenigris/Objective-Lepiter' ].
 		spec 
 			postLoadDoIt: #gtPostLoad;
 			package: 'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter) ] ]
