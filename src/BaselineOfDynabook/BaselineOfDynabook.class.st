@@ -129,7 +129,7 @@ BaselineOfDynabook >> baseline: spec [
 	spec for: #GToolkit do: [ 
 		spec 
 			postLoadDoIt: #gtPostLoad;
-			package: 'Dynabook-GToolkit' ]
+			package: 'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter) ] ]
 ]
 
 { #category : #accessing }

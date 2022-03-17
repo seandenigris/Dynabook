@@ -1,7 +1,7 @@
 Class {
 	#name : #PpEventUIDReference,
 	#superclass : #DbObjectUIDReference,
-	#category : #'Dynabook-Core'
+	#category : #'Dynabook-GToolkit'
 }
 
 { #category : #accessing }

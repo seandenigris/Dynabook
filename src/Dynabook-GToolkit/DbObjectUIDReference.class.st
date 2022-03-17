@@ -6,7 +6,7 @@ Class {
 		'sourceClassName',
 		'sourceGetter'
 	],
-	#category : #'Dynabook-Core'
+	#category : #'Dynabook-GToolkit'
 }
 
 { #category : #accessing }
