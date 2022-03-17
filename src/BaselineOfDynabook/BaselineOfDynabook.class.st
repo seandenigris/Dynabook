@@ -145,9 +145,8 @@ BaselineOfDynabook >> gtPostLoad [
 	QuLeTranscriptPageType 
 		modelReferenceForClass: PpEvent 
 			builder: [ 
-				DbObjectUIDReference new
+				PpEventUIDReference new
 					sourceClass: PpEventLog;
-					collectionGetter: #events;
 					yourself ];
 		modelReferenceForClass: LlAuthoredWork 
 			builder: [ 
