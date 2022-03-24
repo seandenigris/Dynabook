@@ -3,7 +3,7 @@ Extension { #name : #PBPharoPlatform }
 { #category : #'*Dynabook-GToolkit' }
 PBPharoPlatform >> copyApplicationTo: appFolder application: application [
 	"Copy the PythonBridge runtime environment to the specified folder"
-	| srcDir cpCommand proc srcFilename dstFilename error |
+	| srcDir cpCommand proc srcFilename dstFilename error masterPipfile projectPipfiles |
 
 	srcDir := self runtimeSourceDirectoryFor: application.
 	srcDir resolve = appFolder resolve ifTrue: [ ^ self ].
@@ -29,7 +29,14 @@ PBPharoPlatform >> copyApplicationTo: appFolder application: application [
 		error signal ].
 	
 	(appFolder / 'Pipfile') delete.
-	FileLocator localDirectory / 'Iceberg' / 'seandenigris' / 'Dynabook' / 'python' / 'Pipfile' copyTo: appFolder / 'Pipfile'.
+	masterPipfile := (appFolder / 'Pipfile') ensureCreateFile asRlResource
+		mergeIn: (FileLocator imageDirectory / 'gt-extra/feenkcom/PythonBridge/PythonBridgeRuntime/Pipfile') asRlResource;
+		yourself.
+		
+	projectPipfiles := (FileLocator localDirectory / 'iceberg') allFiles 
+		select: [ :e | e basename = 'Pipfile' ] 
+		thenDo: [ :ppf | masterPipfile mergeIn: ppf asRlResource ].
 
 
+	masterPipfile write.
 ]
