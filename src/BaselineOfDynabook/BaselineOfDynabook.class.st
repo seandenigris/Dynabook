@@ -98,6 +98,8 @@ BaselineOfDynabook >> baseline: spec [
 		spec
 			baseline: 'BabySignLanguage' with: [
 				spec repository: 'github://seandenigris/Baby-Sign-Language' ];
+			baseline: 'Broadcastify' with: [
+				spec repository: 'github://seandenigris/Broadcastify-Alive' ];
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
 			baseline: 'DynaChef' with: [
@@ -122,7 +124,7 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec
 			package: 'Dynabook-Core' with: [ spec requires: #('SimplePersistence') ];
-			package: 'Dynabook-Persistence' with: [ spec requires: #('Dynabook-Core' 'SimplePersistence') ] ].
+			package: 'Dynabook-Persistence' with: [ spec requires: #('Broadcastify' 'Dynabook-Core' 'SimplePersistence') ] ].
 	
 	spec for: #GToolkit do: [ 
 		spec

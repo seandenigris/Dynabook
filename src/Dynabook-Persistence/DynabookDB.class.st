@@ -16,7 +16,8 @@ DynabookDB class >> schema [
 	| result |
 	result := OrderedCollection new.
 	result
-		add: BabySignLanguageDB; 
+		add: BabySignLanguageDB;
+		add: BroadcastifyDB;
 		add: ComputerWorldDB.
 	(Smalltalk globals hasClassNamed: #DynaChefDB)
 		ifTrue: [ result add: #DynaChefDB asClass ].
