@@ -10,15 +10,16 @@ PpEventUIDReference class >> leJsonV4Name [
 ]
 
 { #category : #accessing }
-PpEventUIDReference >> initialize [
-	super initialize.
-	self sourceClassName: PpEventLog
+PpEventUIDReference >> detectUID: aBlock ifNone: noneBlock [
+
+	| detectBlock |
+	detectBlock := self wrappedUidDetector: aBlock.
+	self source allEventsDo: [ :e | (detectBlock value: e) ifTrue: [ ^ e ] ].	
+	^ noneBlock value
 ]
 
 { #category : #accessing }
-PpEventUIDReference >> object [
-
-	self source allEventsDo: [ :e | e uuid = uid ifTrue: [ ^ e ] ].
-	
-	^ nil
+PpEventUIDReference >> initialize [
+	super initialize.
+	self sourceClassName: PpEventLog
 ]

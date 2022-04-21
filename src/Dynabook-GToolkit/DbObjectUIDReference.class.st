@@ -15,6 +15,11 @@ DbObjectUIDReference class >> leJsonV4Name [
 ]
 
 { #category : #accessing }
+DbObjectUIDReference >> collection [
+	^ self source perform: self collectionGetter.
+]
+
+{ #category : #accessing }
 DbObjectUIDReference >> collectionGetter [
 
 	^ collectionGetter
@@ -28,11 +33,19 @@ DbObjectUIDReference >> collectionGetter: aSymbol [
 ]
 
 { #category : #accessing }
+DbObjectUIDReference >> detectUID: aBlock ifNone: noneBlock [
+
+	^ self collection
+		detect: (self wrappedUidDetector: aBlock)
+		ifNone: noneBlock
+]
+
+{ #category : #accessing }
 DbObjectUIDReference >> object [
 
-	| objCollection |
-	objCollection := self source perform: self collectionGetter.
-	^ objCollection detect: [ :e | e uuid = uid ] ifNone: [ nil ]
+	^ self 
+		detectUID: [ :aUid | aUid = uid ]
+		ifNone: [ nil ]
 ]
 
 { #category : #accessing }
@@ -74,4 +87,13 @@ DbObjectUIDReference >> sourceGetter: anObject [
 
 	self flag: '#asSymbol is workaround Lepiter materializing symbols as strings, pending answer on GT Discord'.
 	sourceGetter := anObject asSymbol
+]
+
+{ #category : #accessing }
+DbObjectUIDReference >> wrappedUidDetector: aBlock [
+
+	^ [ :e |
+		| aUid |
+		aUid := e uuid.
+		aUid isNotNil and: [ aBlock value: aUid ] ]
 ]
