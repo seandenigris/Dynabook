@@ -7,13 +7,13 @@ Class {
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : #'Dynabook-Core'
+	#category : #'Dynabook-Core-Soup'
 }
 
-{ #category : #'as yet unclassified' }
-DbSoup class >> detectUID: aBlock [
+{ #category : #accessing }
+DbSoup class >> detectUIDString36: aString [
 	
-	^ self uniqueInstance detectUID: aBlock
+	^ self uniqueInstance detectUIDString36: aString
 ]
 
 { #category : #'as yet unclassified' }
@@ -21,7 +21,7 @@ DbSoup class >> uniqueInstance [
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 DbSoup >> detectUID: aBlock [
 	| sources |
 	sources := { 
@@ -32,6 +32,11 @@ DbSoup >> detectUID: aBlock [
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
 			collectionGetter: #works;
+			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: RlResourceLibrary;
+			collectionGetter: #resources;
 			yourself }.
 			
 	sources do: [ :source |
@@ -42,4 +47,10 @@ DbSoup >> detectUID: aBlock [
 		result ifNotNil: [ ^ result ] ].
 		
 	self error: 'UID not found!'
+]
+
+{ #category : #accessing }
+DbSoup >> detectUIDString36: aString [
+	
+	^ self detectUID: [ :id | id asString36 = aString ]
 ]
