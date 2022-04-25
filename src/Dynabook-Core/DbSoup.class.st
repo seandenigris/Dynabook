@@ -56,6 +56,11 @@ DbSoup >> sources [
 		DbObjectUIDReference new
 			sourceClass: RlResourceLibrary;
 			collectionGetter: #resources;
-			yourself
+			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: LlLibrary;
+			collectionGetter: #copies;
+			yourself.
 	}.
 ]
