@@ -23,23 +23,8 @@ DbSoup class >> uniqueInstance [
 
 { #category : #accessing }
 DbSoup >> detectUID: aBlock [
-	| sources |
-	sources := { 
-		PpEventUIDReference new
-			sourceClass: PpEventLog;
-			yourself.
-		
-		DbObjectUIDReference new
-			sourceClass: LlLibrary;
-			collectionGetter: #works;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: RlResourceLibrary;
-			collectionGetter: #resources;
-			yourself }.
-			
-	sources do: [ :source |
+	
+	self sources do: [ :source |
 		| result |
 		result := source 
 			detectUID: [ :uid | aBlock value: uid ]
@@ -53,4 +38,24 @@ DbSoup >> detectUID: aBlock [
 DbSoup >> detectUIDString36: aString [
 	
 	^ self detectUID: [ :id | id asString36 = aString ]
+]
+
+{ #category : #accessing }
+DbSoup >> sources [
+
+	^ { 
+		PpEventUIDReference new
+			sourceClass: PpEventLog;
+			yourself.
+		
+		DbObjectUIDReference new
+			sourceClass: LlLibrary;
+			collectionGetter: #works;
+			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: RlResourceLibrary;
+			collectionGetter: #resources;
+			yourself
+	}.
 ]
