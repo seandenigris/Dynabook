@@ -144,7 +144,7 @@ BaselineOfDynabook >> customProjectAttributes [
 
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
-	QuLeTranscriptPageType 
+	OlObjectPageType 
 		modelReferenceForClass: PpEvent 
 			builder: [ 
 				PpEventUIDReference new
@@ -155,19 +155,7 @@ BaselineOfDynabook >> gtPostLoad [
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
 					collectionGetter: #works;
-					yourself ].
-			
-	"Can't work here unless lazily evaluated because we didn't load the data in yet
-	QuLeSources providers: { 
-		QuLeSourceProvider new
-			model: PpEventLog uniqueInstance;
-			sourceCollectionGetter: #events;
-			yourself.
-		QuLeSourceProvider new
-			model: LlLibrary uniqueInstance;
-			sourceCollectionGetter: #works;
-			yourself
-	}."
+					yourself ]
 ]
 
 { #category : #testing }
