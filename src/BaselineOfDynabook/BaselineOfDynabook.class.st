@@ -145,16 +145,22 @@ BaselineOfDynabook >> customProjectAttributes [
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
 	OlObjectPageType 
-		modelReferenceForClass: PpEvent 
-			builder: [ 
-				PpEventUIDReference new
-					sourceClass: PpEventLog;
-					yourself ];
 		modelReferenceForClass: LlAuthoredWork 
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
 					collectionGetter: #works;
+					yourself ];
+		modelReferenceForClass: MpRelatableEntity
+			builder: [ 
+				DbObjectUIDReference new
+					sourceClass: MpAddressBook;
+					collectionGetter: #contacts;
+					yourself ];
+		modelReferenceForClass: PpEvent 
+			builder: [ 
+				PpEventUIDReference new
+					sourceClass: PpEventLog;
 					yourself ]
 ]
 
