@@ -44,15 +44,20 @@ DbSoup >> detectUIDString36: aString [
 DbSoup >> sources [
 
 	^ { 
-		PpEventUIDReference new
-			sourceClass: PpEventLog;
-			yourself.
-		
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
 			collectionGetter: #works;
 			yourself.
 			
+		DbObjectUIDReference new
+			sourceClass: MpAddressBook;
+			collectionGetter: #contacts;
+					yourself.
+			
+		PpEventUIDReference new
+			sourceClass: PpEventLog;
+			yourself.
+		
 		DbObjectUIDReference new
 			sourceClass: RlResourceLibrary;
 			collectionGetter: #resources;
