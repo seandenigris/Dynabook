@@ -161,7 +161,18 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: [ 
 				PpEventUIDReference new
 					sourceClass: PpEventLog;
-					yourself ]
+					yourself ].
+					
+	QuLeSources providers: { 
+		PpEventUIDReference new
+			sourceClass: PpEventLog;
+			yourself.
+
+		DbObjectUIDReference new
+			sourceClass: LlLibrary;
+			collectionGetter: #works;
+			yourself
+	}.
 ]
 
 { #category : #testing }
