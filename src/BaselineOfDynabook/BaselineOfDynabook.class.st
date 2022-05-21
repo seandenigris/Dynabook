@@ -145,6 +145,12 @@ BaselineOfDynabook >> customProjectAttributes [
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
 	OlObjectPageType 
+		modelReferenceForClass: CwSoftware 
+			builder: [ 
+				DbObjectUIDReference new
+					sourceClass: CwSoftwareCatalog;
+					collectionGetter: #collection;
+					yourself ];
 		modelReferenceForClass: LlAuthoredWork 
 			builder: [ 
 				DbObjectUIDReference new
