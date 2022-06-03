@@ -17,6 +17,6 @@ PpEvent >> hasRecording [
 { #category : #'*Dynabook-Core' }
 PpEvent >> newPlayer [
 	self hasRecording ifTrue: [ ^ self ensureRecording newPlayer ].
-	(self startDate isNil or: [ self isPast ]) ifTrue: [ ^ PpHistoricalPlayer new ].
+	self isInProgress ifFalse: [ ^ PpHistoricalPlayer new ].
 	^ PpLivePlayer new
 ]
