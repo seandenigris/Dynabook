@@ -16,6 +16,12 @@ DbSoup class >> detectUIDString36: aString [
 	^ self uniqueInstance detectUIDString36: aString
 ]
 
+{ #category : #accessing }
+DbSoup class >> detectUIDString36: aString ifNone: noneBlock [
+	
+	^ self uniqueInstance detectUIDString36: aString ifNone: noneBlock
+]
+
 { #category : #'as yet unclassified' }
 DbSoup class >> uniqueInstance [
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
@@ -24,6 +30,14 @@ DbSoup class >> uniqueInstance [
 { #category : #accessing }
 DbSoup >> detectUID: aBlock [
 	
+	^ self
+		detectUID: aBlock 
+		ifNone: [ self error: 'UID not found!' ]
+]
+
+{ #category : #accessing }
+DbSoup >> detectUID: aBlock ifNone: noneBlock [
+	
 	self sources do: [ :source |
 		| result |
 		result := source 
@@ -31,13 +45,19 @@ DbSoup >> detectUID: aBlock [
 			ifNone: [ nil ].
 		result ifNotNil: [ ^ result ] ].
 		
-	self error: 'UID not found!'
+	^ noneBlock value
 ]
 
 { #category : #accessing }
 DbSoup >> detectUIDString36: aString [
 	
 	^ self detectUID: [ :id | id asString36 = aString ]
+]
+
+{ #category : #accessing }
+DbSoup >> detectUIDString36: aString ifNone: noneBlock [
+	
+	^ self detectUID: [ :id | id asString36 = aString ] ifNone: noneBlock
 ]
 
 { #category : #accessing }
