@@ -61,6 +61,11 @@ DbSoup >> detectUIDString36: aString ifNone: noneBlock [
 ]
 
 { #category : #accessing }
+DbSoup >> gtSpotterProcessorsFor: aSpotterStep [
+	^ self sources flatCollect: [ :source | source source gtSpotterProcessorsFor: aSpotterStep ]
+]
+
+{ #category : #accessing }
 DbSoup >> sources [
 
 	^ { 
