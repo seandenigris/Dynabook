@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'Dynabook',
+      #directory : 'src',
+      #platforms : [ #pharo ]
+    }
+  ]
+}
