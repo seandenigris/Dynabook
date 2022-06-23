@@ -167,6 +167,12 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: [ 
 				PpEventUIDReference new
 					sourceClass: PpEventLog;
+					yourself ];
+		modelReferenceForClass: PpProject 
+			builder: [ 
+				DbObjectUIDReference new
+					sourceClass: PpProjectList;
+					collectionGetter: #allProjects;
 					yourself ].
 					
 	QuLeSources providers: { 
