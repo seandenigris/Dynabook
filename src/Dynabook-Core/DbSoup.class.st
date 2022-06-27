@@ -62,13 +62,20 @@ DbSoup >> detectUIDString36: aString ifNone: noneBlock [
 
 { #category : #accessing }
 DbSoup >> gtSpotterProcessorsFor: aSpotterStep [
-	^ self sources flatCollect: [ :source | source source gtSpotterProcessorsFor: aSpotterStep ]
+	| spotterSources |
+	spotterSources := self sources collect: [ :e | e source ] as: IdentitySet.
+	^ spotterSources flatCollect: [ :source | source gtSpotterProcessorsFor: aSpotterStep ]
 ]
 
 { #category : #accessing }
 DbSoup >> sources [
 
 	^ { 
+		DbObjectUIDReference new
+			sourceClass: CwSoftwareCatalog;
+			collectionGetter: #collection;
+			yourself.
+			
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
 			collectionGetter: #works;
@@ -77,7 +84,7 @@ DbSoup >> sources [
 		DbObjectUIDReference new
 			sourceClass: MpAddressBook;
 			collectionGetter: #contacts;
-					yourself.
+			yourself.
 			
 		PpEventUIDReference new
 			sourceClass: PpEventLog;
