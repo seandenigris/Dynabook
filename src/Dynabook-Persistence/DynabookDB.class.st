@@ -13,21 +13,16 @@ DynabookDB class >> backupDirectoryParent [
 { #category : #'loading/saving' }
 DynabookDB class >> schema [
 
-	| result |
-	result := OrderedCollection new.
-	result
-		add: BabySignLanguageDB;
-		add: BroadcastifyDB;
-		add: ComputerWorldDB.
-	(Smalltalk globals hasClassNamed: #DynaChefDB)
-		ifTrue: [ result add: #DynaChefDB asClass ].
-	^ result
-		add: FlashcardsStDB;
-		add: IdeasDB;
-		add: LivingLibraryDB;
-		add: SmallWorldDB;
-		add: TheProjectProjectDB;
-		add: UkuleleDB;
-		add: VirtualStashDB;
-		yourself
+	^ {
+		BabySignLanguageDB.
+		BroadcastifyDB.
+		ComputerWorldDB.
+		FlashcardsStDB.
+		IdeasDB.
+		LivingLibraryDB.
+		SmallWorldDB.
+		TheProjectProjectDB.
+		UkuleleDB.
+		VirtualStashDB.
+	}
 ]

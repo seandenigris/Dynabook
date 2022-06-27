@@ -102,8 +102,6 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Broadcastify-Alive' ];
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
-			baseline: 'DynaChef' with: [
-				spec repository: 'github://seandenigris/DynaChef' ];
 			baseline: 'FITProtocol' with: [
 				spec repository: 'github://seandenigris/FITProtocol4GToolkit' ];
 			baseline: 'FlashcardsSt' with: [
