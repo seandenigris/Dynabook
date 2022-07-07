@@ -170,7 +170,7 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: PpProjectList;
-					collectionGetter: #allProjects;
+					collectionGetter: #allChildren;
 					yourself ].
 					
 	QuLeSources providers: { 
