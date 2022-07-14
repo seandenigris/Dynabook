@@ -83,3 +83,12 @@ The following projects are my core components:
 - [My People](https://github.com/SeanDeNigris/My-People) - Address Book service, minus the usual application stovepipe, running on GT (Smalltalk)
 - [Virtual Stash](https://github.com/SeanDeNigris/Virtual-Stash) - Picture GnuCash, minus the application stovepipe, running on GToolkit (Smalltalk)
 - [Tracking Numbers](https://github.com/seandenigris/Tracking-ST) - Tracking numbers, unleashed from an application stovepipe, on GToolkit (Smalltalk)
+
+# Icons
+Our GTooklit Home Section uses the following icons from <thenounproject.com>:
+- Financial Advice Book by Juicy Fish
+- Database by Larea
+- Library Book by Kmg Design
+- Project by WEBTECHOPS LLP
+- File by Gilang Kampus
+- Bridge by Wan Ikhsan
