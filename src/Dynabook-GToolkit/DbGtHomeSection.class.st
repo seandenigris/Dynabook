@@ -18,17 +18,11 @@ DbGtHomeSection class >> dataDB: anSpFileDatabaseClass [
 
 { #category : #stencils }
 DbGtHomeSection >> addressBookButton [
-	^ GtToolButtonStencil new 
-		title: 'Address Book';
-		icon: BrGlamorousVectorIcons robot;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Address Book'
-				with:
-					(GtInspector
-						createOn: MpAddressBook default) maximized
-				from: card ];
-		description: 'Inspect default address book'.
+	^ self
+		buttonTitled: 'Address Book'
+		iconFileNamed: 'noun-address-book-148913.png'
+		tooltip: 'Inspect default address book'
+		inspecting: MpAddressBook uniqueInstance
 ]
 
 { #category : #stencils }
@@ -46,28 +40,41 @@ DbGtHomeSection >> baselineButton [
 
 { #category : #stencils }
 DbGtHomeSection >> booksButton [
-	^ GtToolButtonStencil new 
-		title: 'Books - Personal';
-		icon: BrGlamorousVectorIcons largeBook;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Books - Personal'
-				with:
-					(GtInspector
-						createOn: VsBooks personal) maximized
-				from: card ];
-		description: 'Inspect personal books'.
+	^ self
+		buttonTitled: 'Books - Personal'
+		iconFileNamed: 'noun-financial-advice-book-4450943.png'
+		tooltip: 'Inspect personal books'
+		inspecting: VsBooks personal
 ]
 
 { #category : #stencils }
 DbGtHomeSection >> bridgeButton [
+	| icon |
+	icon := self iconFromFileNamed: 'noun-bridge-4982741.png'.
 	^ GtToolButtonStencil new 
 		title: 'PBridge - Restart';
-		icon: BrGlamorousVectorIcons refresh;
+		icon: icon;
+		iconSize: 50@50;
 		action: [ :card | 
 			PBApplication stop; start.
 			UIManager default inform: 'Python Bridge Restarted' ];
 		description: 'Stop and then start PBApplication'.
+]
+
+{ #category : #stencils }
+DbGtHomeSection >> buttonTitled: aString iconFileNamed: iconName tooltip: tipString inspecting: anObject [
+	^ GtToolButtonStencil new 
+		title: aString;
+		icon: (self iconFromFileNamed: iconName);
+		iconSize: 50@50;
+		action: [ :card | 
+			self
+				showSpaceWithTitle: aString
+				with:
+					(GtInspector
+						createOn: anObject) maximized
+				from: card ];
+		description: tipString.
 ]
 
 { #category : #'api - instantiation' }
@@ -77,10 +84,11 @@ DbGtHomeSection >> create [
 	sectionContainer addChild: (self newSectionTitle: 'Dynabook').
 
 	cardsContainer := self newCardsContainer
-		addChild: self addressBookButton create;
-		addChild: self booksButton create;
 		addChild: self livingLibraryButton create;
 		addChild: self projectListButton create;
+		addChild: self eventLogButton create;
+		addChild: self addressBookButton create;
+		addChild: self booksButton create;
 		addChild: self resourceLibraryButton create;
 		addChild: self dataButton create;
 		addChild: self bridgeButton create;
@@ -94,16 +102,11 @@ DbGtHomeSection >> create [
 
 { #category : #stencils }
 DbGtHomeSection >> dataButton [
-	^ GtToolButtonStencil new 
-		title: 'SP Data';
-		icon: BrGlamorousVectorIcons largeWindow;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Dynabook Data'
-				with:
-					(GtInspector
-						createOn: self dataDB) maximized
-				from: card ].
+	^ self
+		buttonTitled: 'SP Data'
+		iconFileNamed: 'noun-database-4716694.png'
+		tooltip: 'Inspect persisted DB'
+		inspecting: self dataDB
 ]
 
 { #category : #accessing }
@@ -112,55 +115,56 @@ DbGtHomeSection >> dataDB [
 ]
 
 { #category : #stencils }
+DbGtHomeSection >> eventLogButton [
+	^ self
+		buttonTitled: 'Event Log'
+		iconFileNamed: 'noun-calendar-4979381.png'
+		tooltip: 'Inspect default event log'
+		inspecting: PpEventLog uniqueInstance
+]
+
+{ #category : #private }
+DbGtHomeSection >> iconFromFileNamed: aString [
+	| result |
+	result := GtFileUtility imageElementFromFileReference: BaselineOfDynabook iconFolder / aString.
+	^ result
+		alignBottomCenter;
+		yourself	
+]
+
+{ #category : #stencils }
 DbGtHomeSection >> livingLibraryButton [
-	^ GtToolButtonStencil new 
-		title: 'LL Library';
-		icon: BrGlamorousVectorIcons largeBook;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Living Library'
-				with:
-					(GtInspector
-						createOn: LlLibrary uniqueInstance) maximized
-				from: card ];
-		description: 'Inspect default library'.
+	^ self
+		buttonTitled: 'LL Library'
+		iconFileNamed: 'noun-library-book-4329851.png'
+		tooltip: 'Inspect default library'
+		inspecting: LlLibrary uniqueInstance
 ]
 
 { #category : #stencils }
 DbGtHomeSection >> projectListButton [
-	^ GtToolButtonStencil new 
-		title: 'Projects';
-		icon: BrGlamorousVectorIcons clipboard;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Projects'
-				with:
-					(GtInspector
-						createOn: PpProjectList uniqueInstance) maximized
-				from: card ];
-		description: 'Inspect project list'.
+	^ self
+		buttonTitled: 'Projects'
+		iconFileNamed: 'noun-project-2662138.png'
+		tooltip: 'Inspect default project list'
+		inspecting: PpProjectList uniqueInstance
 ]
 
 { #category : #stencils }
 DbGtHomeSection >> resourceLibraryButton [
-	^ GtToolButtonStencil new 
-		title: 'Resource Library';
-		icon: BrGlamorousVectorIcons largeBook;
-		action: [ :card | 
-			self
-				showSpaceWithTitle: 'Living Library'
-				with:
-					(GtInspector
-						createOn: RlResourceLibrary uniqueInstance) maximized
-				from: card ];
-		description: 'Inspect default library'.
+	^ self
+		buttonTitled: 'Resource Library'
+		iconFileNamed: 'noun-file-4980207.png'
+		tooltip: 'Inspect default resource library'
+		inspecting: RlResourceLibrary uniqueInstance
 ]
 
 { #category : #stencils }
 DbGtHomeSection >> updateHomeButton [
 	^ GtToolButtonStencil new 
-		title: 'Home Sections - Update';
-		icon: BrGlamorousVectorIcons refresh;
+		title: 'Update These';
+		icon: (self iconFromFileNamed: 'noun-home-323099.png');
+		iconSize: 55@55;
 		action: [ :card | 
 			GtHome allInstances do: #updateSections ];
 		description: 'Refresh after making changes'.

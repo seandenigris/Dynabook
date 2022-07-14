@@ -66,6 +66,11 @@ BaselineOfDynabook class >> dataFolder [
 ]
 
 { #category : #accessing }
+BaselineOfDynabook class >> iconFolder [
+	^ self iceRepository location / 'icons'
+]
+
+{ #category : #accessing }
 BaselineOfDynabook class >> readme [
 
 	| componentList template project |
@@ -74,7 +79,17 @@ BaselineOfDynabook class >> readme [
 
 # Components	
 The following projects are my core components:
-{componentList}'.
+{componentList}
+
+# Icons
+Our GTooklit Home Section uses the following icons from <thenounproject.com>:
+- Financial Advice Book by Juicy Fish
+- Database by Larea
+- Library Book by Kmg Design
+- Project by WEBTECHOPS LLP
+- File by Gilang Kampus
+- Bridge by Wan Ikhsan
+'.
 
 	componentList := String streamContents: [ :str |
 		self coreProjects 
