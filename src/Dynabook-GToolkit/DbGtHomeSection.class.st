@@ -84,11 +84,11 @@ DbGtHomeSection >> create [
 	sectionContainer addChild: (self newSectionTitle: 'Dynabook').
 
 	cardsContainer := self newCardsContainer
-		addChild: self livingLibraryButton create;
-		addChild: self projectListButton create;
-		addChild: self eventLogButton create;
 		addChild: self addressBookButton create;
 		addChild: self booksButton create;
+		addChild: self eventLogButton create;
+		addChild: self livingLibraryButton create;
+		addChild: self projectListButton create;
 		addChild: self resourceLibraryButton create;
 		addChild: self dataButton create;
 		addChild: self bridgeButton create;
