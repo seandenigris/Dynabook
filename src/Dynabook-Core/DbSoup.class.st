@@ -89,6 +89,10 @@ DbSoup >> sources [
 		PpEventUIDReference new
 			sourceClass: PpEventLog;
 			yourself.
+			
+		PpEventUIDReference new
+			sourceClass: PpInventory;
+			yourself.
 		
 		DbObjectUIDReference new
 			sourceClass: RlResourceLibrary;
