@@ -73,23 +73,22 @@ BaselineOfDynabook class >> iconFolder [
 { #category : #accessing }
 BaselineOfDynabook class >> readme [
 
-	| componentList template project |
+	| componentList template |
 	
-	template := '{basicReadme}
-
-# Components	
+	template := '# Components	
 The following projects are my core components:
 {componentList}
 
 # Icons
-Our GTooklit Home Section uses the following icons from <thenounproject.com>:
+Our GTooklit Home Section uses the following icons from [Noun Project](https://thenounproject.com/browse/icons/term/inventory/):
 - Financial Advice Book by Juicy Fish
 - Database by Larea
 - Library Book by Kmg Design
 - Project by WEBTECHOPS LLP
 - File by Gilang Kampus
 - Bridge by Wan Ikhsan
-'.
+- inventory by Eucalyp
+- Computer Network by Vectors Market'.
 
 	componentList := String streamContents: [ :str |
 		self coreProjects 
@@ -98,10 +97,7 @@ Our GTooklit Home Section uses the following icons from <thenounproject.com>:
 				p description ifNotEmpty: [ :d | str << ' - ' << d ] ]
 			separatedBy: [ str lf ] ].
 			
-	project := SmallProjectRegistry uniqueInstance detectForBaseline: self.
-			
 	^ template format: {
-		#basicReadme -> project repository readme.
 		#componentList -> componentList } asDictionary.
 ]
 
