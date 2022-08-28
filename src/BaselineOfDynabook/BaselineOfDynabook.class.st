@@ -175,12 +175,12 @@ BaselineOfDynabook >> gtPostLoad [
 		modelReferenceForClass: PpEvent 
 			builder: [ 
 				PpEventUIDReference new
-					sourceClass: PpInventory;
+					sourceClass: PpEventLog;
 					yourself ];
 		modelReferenceForClass: PpInventoryItem 
 			builder: [ 
 				PpEventUIDReference new
-					sourceClass: PpEventLog;
+					sourceClass: PpInventory;
 					yourself ];
 		modelReferenceForClass: PpProject 
 			builder: [ 
