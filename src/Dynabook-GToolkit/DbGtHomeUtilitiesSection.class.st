@@ -1,9 +1,6 @@
 Class {
 	#name : #DbGtHomeUtilitiesSection,
-	#superclass : #DbGtHomeSection,
-	#instVars : [
-		'cardsContainer'
-	],
+	#superclass : #GtHomeSection,
 	#classVars : [
 		'DataDB'
 	],
@@ -45,7 +42,7 @@ DbGtHomeUtilitiesSection >> bridgeButton [
 
 { #category : #'api - instantiation' }
 DbGtHomeUtilitiesSection >> create [
-	| sectionContainer |
+	| cardsContainer sectionContainer |
 	sectionContainer := self newSectionContainer.
 	sectionContainer addChild: (self newSectionTitle: 'Dynabook - Utilities').
 
@@ -81,6 +78,11 @@ DbGtHomeUtilitiesSection >> eventLogButton [
 		iconFileNamed: 'noun-calendar-4979381.png'
 		tooltip: 'Inspect default event log'
 		inspecting: PpEventLog uniqueInstance
+]
+
+{ #category : #accessing }
+DbGtHomeUtilitiesSection >> iconFolder [
+	^ BaselineOfDynabook iconFolder
 ]
 
 { #category : #stencils }

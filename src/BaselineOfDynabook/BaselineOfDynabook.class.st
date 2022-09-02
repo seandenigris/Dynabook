@@ -66,11 +66,6 @@ BaselineOfDynabook class >> dataFolder [
 ]
 
 { #category : #accessing }
-BaselineOfDynabook class >> iconFolder [
-	^ self iceRepository location / 'icons'
-]
-
-{ #category : #accessing }
 BaselineOfDynabook class >> readme [
 
 	| componentList template |
@@ -121,6 +116,8 @@ BaselineOfDynabook >> baseline: spec [
  				spec repository: 'github://seandenigris/ideas' ];
 			baseline: 'Nature' with: [
 				spec repository: 'github://seandenigris/Nature' ];
+			baseline: 'PharoEnhancements' with: [
+				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
@@ -141,7 +138,7 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Objective-Lepiter' ].
 		spec 
 			postLoadDoIt: #gtPostLoad;
-			package: 'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter) ] ]
+			package: 'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter PharoEnhancements) ] ]
 ]
 
 { #category : #accessing }
