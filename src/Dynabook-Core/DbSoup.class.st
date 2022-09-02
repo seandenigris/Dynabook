@@ -91,6 +91,11 @@ DbSoup >> sources [
 			yourself.
 			
 		DbObjectUIDReference new
+			sourceClass: PpProjectList;
+			collectionGetter: #allChildren;
+			yourself.
+		
+		DbObjectUIDReference new
 			sourceClass: PpInventory;
 			collectionGetter: #items;
 			yourself.
