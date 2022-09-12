@@ -39,6 +39,7 @@ DbGtHomeDomainSection >> create [
 		addChild: self booksButton create;
 		addChild: self eventLogButton create;
 		addChild: self ppInventoryButton create;
+		addChild: self ppLocationListButton create;
 		addChild: self livingLibraryButton create;
 		addChild: self cwNetworkedDeviceButton create;
 		addChild: self projectListButton create;
@@ -88,6 +89,15 @@ DbGtHomeDomainSection >> ppInventoryButton [
 		iconFileNamed: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Inventory'
 		inspecting: PpInventory uniqueInstance
+]
+
+{ #category : #stencils }
+DbGtHomeDomainSection >> ppLocationListButton [
+	^ self
+		buttonTitled: 'Locations'
+		iconFileNamed: 'noun-inventory-2895895.png'
+		tooltip: 'Inspect Location List'
+		inspecting: PpLocationList uniqueInstance
 ]
 
 { #category : #stencils }
