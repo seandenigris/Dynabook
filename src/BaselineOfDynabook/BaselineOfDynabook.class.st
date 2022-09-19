@@ -176,8 +176,9 @@ BaselineOfDynabook >> gtPostLoad [
 					yourself ];
 		modelReferenceForClass: PpInventoryItem 
 			builder: [ 
-				PpEventUIDReference new
+				DbObjectUIDReference new
 					sourceClass: PpInventory;
+					collectionGetter: #items;
 					yourself ];
 		modelReferenceForClass: PpProject 
 			builder: [ 
