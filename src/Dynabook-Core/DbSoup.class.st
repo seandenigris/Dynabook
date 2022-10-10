@@ -61,10 +61,11 @@ DbSoup >> detectUIDString36: aString ifNone: noneBlock [
 ]
 
 { #category : #accessing }
-DbSoup >> gtSpotterProcessorsFor: aSpotterStep [
+DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 	| spotterSources |
-	spotterSources := self sources collect: [ :e | e source ] as: IdentitySet.
-	^ spotterSources flatCollect: [ :source | source gtSpotterProcessorsFor: aSpotterStep ]
+	"Halt now."
+	spotterSources := (self sources asAsyncStream collect: [ :e | e source ]) withoutDuplicates useIdentityComparison.
+	^ spotterSources flatCollect: [ :source | source gtSpotterSearchesInContext: aSpotterContext ].
 ]
 
 { #category : #accessing }
