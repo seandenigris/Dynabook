@@ -196,7 +196,7 @@ BaselineOfDynabook >> gtPostLoad [
 			sourceClass: LlLibrary;
 			collectionGetter: #works;
 			yourself
-	}.
+	} asOrderedCollection.
 ]
 
 { #category : #testing }
