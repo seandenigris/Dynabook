@@ -10,10 +10,11 @@ PpEventUIDReference class >> leJsonV4Name [
 ]
 
 { #category : #accessing }
-PpEventUIDReference >> detectUID: aBlock ifNone: noneBlock [
+PpEventUIDReference >> detectUID: anObject ifNone: noneBlock [
+	"anObject - must respond to olDetectUIDBlock. See implementors"
 
 	| detectBlock |
-	detectBlock := self wrappedUidDetector: aBlock.
+	detectBlock := self wrappedUidDetector: anObject olDetectUIDBlock.
 	self source allEventsDo: [ :e | (detectBlock value: e) ifTrue: [ ^ e ] ].	
 	^ noneBlock value
 ]

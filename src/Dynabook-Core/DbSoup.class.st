@@ -36,12 +36,13 @@ DbSoup >> detectUID: aBlock [
 ]
 
 { #category : #accessing }
-DbSoup >> detectUID: aBlock ifNone: noneBlock [
+DbSoup >> detectUID: anObject ifNone: noneBlock [
+	"anObject - must respond to olDetectUIDBlock. See implementors"
 	
 	self sources do: [ :source |
 		| result |
 		result := source 
-			detectUID: [ :uid | aBlock value: uid ]
+			detectUID: anObject
 			ifNone: [ nil ].
 		result ifNotNil: [ ^ result ] ].
 		
