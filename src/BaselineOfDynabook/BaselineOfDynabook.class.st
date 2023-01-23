@@ -195,7 +195,9 @@ BaselineOfDynabook >> gtPostLoad [
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
 			collectionGetter: #works;
-			yourself
+			yourself.
+			
+		QuSnippetSource new.
 	} asOrderedCollection.
 ]
 
