@@ -34,7 +34,7 @@ DbObjectUIDReference >> collectionGetter: aSymbol [
 
 { #category : #accessing }
 DbObjectUIDReference >> detectUID: anObject ifNone: noneBlock [
-	"anObject - must respond to olDetectUIDBlock. See implementors"
+	"anObject - must understand olDetectUIDBlock. See implementors"
 
 	^ self collection
 		detect: (self wrappedUidDetector: anObject olDetectUIDBlock)
@@ -45,7 +45,7 @@ DbObjectUIDReference >> detectUID: anObject ifNone: noneBlock [
 DbObjectUIDReference >> object [
 
 	^ self 
-		detectUID: [ :aUid | aUid = uid ]
+		detectUID: uid
 		ifNone: [ nil ]
 ]
 

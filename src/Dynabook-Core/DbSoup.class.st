@@ -11,15 +11,19 @@ Class {
 }
 
 { #category : #accessing }
-DbSoup class >> detectUIDString36: aString [
+DbSoup class >> detectUID: anObject [
+	"See instance-side comment"
 	
-	^ self uniqueInstance detectUIDString36: aString
+	^ self uniqueInstance detectUID: anObject
 ]
 
 { #category : #accessing }
-DbSoup class >> detectUIDString36: aString ifNone: noneBlock [
+DbSoup class >> detectUID: anObject ifNone: noneBlock [
+	"See instance-side comment"
 	
-	^ self uniqueInstance detectUIDString36: aString ifNone: noneBlock
+	^ self uniqueInstance 
+		detectUID: anObject 
+		ifNone: noneBlock
 ]
 
 { #category : #'as yet unclassified' }
@@ -28,16 +32,17 @@ DbSoup class >> uniqueInstance [
 ]
 
 { #category : #accessing }
-DbSoup >> detectUID: aBlock [
+DbSoup >> detectUID: anObject [
+	"anObject - must understand #olDetectUIDBlock. See implementors"
 	
 	^ self
-		detectUID: aBlock 
+		detectUID: anObject 
 		ifNone: [ self error: 'UID not found!' ]
 ]
 
 { #category : #accessing }
 DbSoup >> detectUID: anObject ifNone: noneBlock [
-	"anObject - must respond to olDetectUIDBlock. See implementors"
+	"anObject - must understand #olDetectUIDBlock. See implementors"
 	
 	self sources do: [ :source |
 		| result |
@@ -47,18 +52,6 @@ DbSoup >> detectUID: anObject ifNone: noneBlock [
 		result ifNotNil: [ ^ result ] ].
 		
 	^ noneBlock value
-]
-
-{ #category : #accessing }
-DbSoup >> detectUIDString36: aString [
-	
-	^ self detectUID: [ :id | id asString36 = aString ]
-]
-
-{ #category : #accessing }
-DbSoup >> detectUIDString36: aString ifNone: noneBlock [
-	
-	^ self detectUID: [ :id | id asString36 = aString ] ifNone: noneBlock
 ]
 
 { #category : #accessing }
