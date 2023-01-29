@@ -180,7 +180,7 @@ BaselineOfDynabook >> gtPostLoad [
 					sourceClass: PpInventory;
 					collectionGetter: #items;
 					yourself ];
-		modelReferenceForClass: PpProject 
+		modelReferenceForClass: PpValue 
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: PpProjectList;
