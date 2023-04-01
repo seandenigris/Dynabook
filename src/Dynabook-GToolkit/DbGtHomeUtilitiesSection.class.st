@@ -63,21 +63,12 @@ DbGtHomeUtilitiesSection >> dataButton [
 		buttonTitled: 'SP Data'
 		iconFileNamed: 'noun-database-4716694.png'
 		tooltip: 'Inspect persisted DB'
-		inspecting: self dataDB
+		inspecting: [ self dataDB ]
 ]
 
 { #category : #accessing }
 DbGtHomeUtilitiesSection >> dataDB [
 	^ DataDB ifNil: [ DynabookDB ]
-]
-
-{ #category : #stencils }
-DbGtHomeUtilitiesSection >> eventLogButton [
-	^ self
-		buttonTitled: 'Event Log'
-		iconFileNamed: 'noun-calendar-4979381.png'
-		tooltip: 'Inspect default event log'
-		inspecting: PpEventLog uniqueInstance
 ]
 
 { #category : #accessing }

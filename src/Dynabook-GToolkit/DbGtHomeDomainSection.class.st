@@ -16,7 +16,7 @@ DbGtHomeDomainSection >> addressBookButton [
 		buttonTitled: 'Address Book'
 		iconFileNamed: 'noun-address-book-148913.png'
 		tooltip: 'Inspect default address book'
-		inspecting: MpAddressBook uniqueInstance
+		inspecting: [ MpAddressBook uniqueInstance ]
 ]
 
 { #category : #stencils }
@@ -25,7 +25,7 @@ DbGtHomeDomainSection >> booksButton [
 		buttonTitled: 'Books - Personal'
 		iconFileNamed: 'noun-financial-advice-book-4450943.png'
 		tooltip: 'Inspect personal books'
-		inspecting: VsBooks personal
+		inspecting: [ VsBooks personal ]
 ]
 
 { #category : #'api - instantiation' }
@@ -56,7 +56,7 @@ DbGtHomeDomainSection >> cwNetworkedDeviceButton [
 		buttonTitled: 'Network Devices'
 		iconFileNamed: 'noun-computer-network-1836808.png'
 		tooltip: 'Inspect devices'
-		inspecting: CwNetworkDevice db
+		inspecting: [ CwNetworkDevice db ]
 ]
 
 { #category : #stencils }
@@ -65,7 +65,7 @@ DbGtHomeDomainSection >> eventLogButton [
 		buttonTitled: 'Event Log'
 		iconFileNamed: 'noun-calendar-4979381.png'
 		tooltip: 'Inspect default event log'
-		inspecting: PpEventLog uniqueInstance
+		inspecting: [ PpEventLog uniqueInstance ]
 ]
 
 { #category : #accessing }
@@ -79,7 +79,7 @@ DbGtHomeDomainSection >> livingLibraryButton [
 		buttonTitled: 'LL Library'
 		iconFileNamed: 'noun-library-book-4329851.png'
 		tooltip: 'Inspect default library'
-		inspecting: LlLibrary uniqueInstance
+		inspecting: [ LlLibrary uniqueInstance ]
 ]
 
 { #category : #stencils }
@@ -88,7 +88,7 @@ DbGtHomeDomainSection >> ppInventoryButton [
 		buttonTitled: 'Inventory'
 		iconFileNamed: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Inventory'
-		inspecting: PpInventory uniqueInstance
+		inspecting: [ PpInventory uniqueInstance ]
 ]
 
 { #category : #stencils }
@@ -97,7 +97,7 @@ DbGtHomeDomainSection >> ppLocationListButton [
 		buttonTitled: 'Locations'
 		iconFileNamed: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Location List'
-		inspecting: PpLocationList uniqueInstance
+		inspecting: [ PpLocationList uniqueInstance ]
 ]
 
 { #category : #stencils }
@@ -106,7 +106,7 @@ DbGtHomeDomainSection >> projectListButton [
 		buttonTitled: 'Projects'
 		iconFileNamed: 'noun-project-2662138.png'
 		tooltip: 'Inspect default project list'
-		inspecting: PpProjectList uniqueInstance
+		inspecting: [ PpProjectList uniqueInstance ]
 ]
 
 { #category : #stencils }
@@ -115,5 +115,5 @@ DbGtHomeDomainSection >> resourceLibraryButton [
 		buttonTitled: 'Resource Library'
 		iconFileNamed: 'noun-file-4980207.png'
 		tooltip: 'Inspect default resource library'
-		inspecting: RlResourceLibrary uniqueInstance
+		inspecting: [ RlResourceLibrary uniqueInstance ]
 ]
