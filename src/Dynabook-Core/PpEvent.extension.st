@@ -20,3 +20,12 @@ PpEvent >> newPlayer [
 	self isInProgress ifFalse: [ ^ PpHistoricalPlayer new ].
 	^ PpLivePlayer new
 ]
+
+{ #category : #'*Dynabook-Core' }
+PpEvent >> oneNotePage [
+
+	^ self 
+		propertyAt: #oneNotePageID
+		ifPresent: [ :pageID | 
+			DbMsalApp uniqueInstance oneNote pageWithID: pageID ]
+]

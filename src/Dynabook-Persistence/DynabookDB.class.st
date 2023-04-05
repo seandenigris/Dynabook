@@ -1,7 +1,7 @@
 Class {
 	#name : #DynabookDB,
 	#superclass : #SpFileDatabase,
-	#category : 'Dynabook-Persistence'
+	#category : #'Dynabook-Persistence'
 }
 
 { #category : #accessing }
@@ -17,6 +17,7 @@ DynabookDB class >> schema [
 		BabySignLanguageDB.
 		BroadcastifyDB.
 		ComputerWorldDB.
+		DbMsalApp.
 		FlashcardsStDB.
 		IdeasDB.
 		LivingLibraryDB.
