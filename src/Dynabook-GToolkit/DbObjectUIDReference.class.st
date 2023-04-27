@@ -22,7 +22,9 @@ DbObjectUIDReference >> collection [
 { #category : #accessing }
 DbObjectUIDReference >> collectionGetter [
 
-	^ collectionGetter
+	^ collectionGetter ifNil: [ self source dbCollectionAccessor ]
+	
+	"Implementation note: the reason for the inst var is that some sources have multiple collections of interest e.g. LlLibrary has works and copies, so dbCollectionAccessor would indicate the default collection, and you could set the inst var to access others"
 ]
 
 { #category : #accessing }

@@ -68,17 +68,14 @@ DbSoup >> sources [
 	^ { 
 		DbObjectUIDReference new
 			sourceClass: CwSoftwareCatalog;
-			collectionGetter: #collection;
 			yourself.
 			
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
-			collectionGetter: #works;
 			yourself.
 			
 		DbObjectUIDReference new
 			sourceClass: MpAddressBook;
-			collectionGetter: #contacts;
 			yourself.
 			
 		PpEventUIDReference new
@@ -87,17 +84,14 @@ DbSoup >> sources [
 			
 		DbObjectUIDReference new
 			sourceClass: PpProjectList;
-			collectionGetter: #allChildren;
 			yourself.
 		
 		DbObjectUIDReference new
 			sourceClass: PpInventory;
-			collectionGetter: #items;
 			yourself.
 		
 		DbObjectUIDReference new
 			sourceClass: RlResourceLibrary;
-			collectionGetter: #resources;
 			yourself.
 			
 		DbObjectUIDReference new

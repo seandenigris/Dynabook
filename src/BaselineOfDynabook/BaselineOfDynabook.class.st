@@ -155,19 +155,16 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: CwSoftwareCatalog;
-					collectionGetter: #collection;
 					yourself ];
 		modelReferenceForClass: LlAuthoredWork 
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
-					collectionGetter: #works;
 					yourself ];
 		modelReferenceForClass: MpRelatableEntity
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: MpAddressBook;
-					collectionGetter: #contacts;
 					yourself ];
 		modelReferenceForClass: PpEvent 
 			builder: [ 
@@ -178,13 +175,11 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: PpInventory;
-					collectionGetter: #items;
 					yourself ];
 		modelReferenceForClass: PpValue 
 			builder: [ 
 				DbObjectUIDReference new
 					sourceClass: PpProjectList;
-					collectionGetter: #allChildren;
 					yourself ].
 					
 	QuLeSources providers: { 
@@ -194,7 +189,6 @@ BaselineOfDynabook >> gtPostLoad [
 
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
-			collectionGetter: #works;
 			yourself.
 			
 		QuSnippetSource new.
