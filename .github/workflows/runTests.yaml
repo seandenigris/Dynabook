@@ -24,7 +24,7 @@ jobs:
     
     strategy:
       matrix:
-        smalltalk: [ Pharo64-9.0 ]
+        smalltalk: [ GToolkit64-release ]
     name: ${{ matrix.smalltalk }}
     
     # Steps represent a sequence of tasks that will be executed as part of the job
