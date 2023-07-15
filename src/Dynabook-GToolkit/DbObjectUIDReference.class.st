@@ -15,6 +15,20 @@ DbObjectUIDReference class >> leJsonV4Name [
 ]
 
 { #category : #accessing }
+DbObjectUIDReference >> = rhs [
+
+	super = rhs ifFalse: [ ^ false ].
+	
+	self collectionGetter = rhs collectionGetter ifFalse: [ ^ false ].
+	
+	self sourceClassName = rhs sourceClassName ifFalse: [ ^ false ].
+	
+	self sourceGetter = rhs sourceGetter ifFalse: [ ^ false ].
+	
+	^ true
+]
+
+{ #category : #accessing }
 DbObjectUIDReference >> collection [
 	^ self source perform: self collectionGetter.
 ]
@@ -41,6 +55,12 @@ DbObjectUIDReference >> detectUID: anObject ifNone: noneBlock [
 	^ self collection
 		detect: (self wrappedUidDetector: anObject olDetectUIDBlock)
 		ifNone: noneBlock
+]
+
+{ #category : #accessing }
+DbObjectUIDReference >> hash [
+
+	^ ((super hash bitXor: self collectionGetter hash) bitXor: self sourceClassName hash) bitXor: self sourceGetter hash
 ]
 
 { #category : #accessing }
