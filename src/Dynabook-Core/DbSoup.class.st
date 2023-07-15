@@ -4,6 +4,9 @@ A facade presenting something like HPI's soup, a collection from which all inter
 Class {
 	#name : #DbSoup,
 	#superclass : #Object,
+	#instVars : [
+		'sources'
+	],
 	#classVars : [
 		'UniqueInstance'
 	],
@@ -63,9 +66,9 @@ DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 ]
 
 { #category : #accessing }
-DbSoup >> sources [
+DbSoup >> initializeSources [
 
-	^ { 
+	sources := { 
 		DbObjectUIDReference new
 			sourceClass: CwSoftwareCatalog;
 			yourself.
@@ -89,6 +92,10 @@ DbSoup >> sources [
 		DbObjectUIDReference new
 			sourceClass: PpInventory;
 			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: PpLocationList;
+			yourself.
 		
 		DbObjectUIDReference new
 			sourceClass: RlResourceLibrary;
@@ -98,5 +105,13 @@ DbSoup >> sources [
 			sourceClass: LlLibrary;
 			collectionGetter: #copies;
 			yourself.
-	}.
+	} asSet.
+]
+
+{ #category : #accessing }
+DbSoup >> sources [
+
+	sources ifNil: [ self initializeSources ].
+	
+	^ sources
 ]
