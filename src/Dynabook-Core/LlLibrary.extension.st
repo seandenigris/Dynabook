@@ -1,6 +1,6 @@
 Extension { #name : #LlLibrary }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 LlLibrary >> dbCollectionAccessor [
 
 	^ #works

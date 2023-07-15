@@ -1,6 +1,6 @@
 Extension { #name : #RlResourceLibrary }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 RlResourceLibrary >> dbCollectionAccessor [
 
 	^ #resources

@@ -1,6 +1,6 @@
 Extension { #name : #PpInventory }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 PpInventory >> dbCollectionAccessor [
 
 	^ #items

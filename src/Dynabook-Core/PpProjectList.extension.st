@@ -1,6 +1,6 @@
 Extension { #name : #PpProjectList }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 PpProjectList >> dbCollectionAccessor [
 
 	^ #allChildren

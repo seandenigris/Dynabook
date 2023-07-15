@@ -1,6 +1,6 @@
 Extension { #name : #PpEventLog }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 PpEventLog >> dbCollectionAccessor [
 
 	^ #events

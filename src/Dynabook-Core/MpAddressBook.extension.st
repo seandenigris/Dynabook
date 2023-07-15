@@ -1,6 +1,6 @@
 Extension { #name : #MpAddressBook }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 MpAddressBook >> dbCollectionAccessor [
 
 	^ #privateContacts

@@ -1,6 +1,6 @@
 Extension { #name : #CwSoftwareCatalog }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : #'*Dynabook-Core' }
 CwSoftwareCatalog >> dbCollectionAccessor [
 
 	^ #collection
