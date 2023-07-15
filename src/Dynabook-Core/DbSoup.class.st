@@ -61,7 +61,7 @@ DbSoup >> detectUID: anObject ifNone: noneBlock [
 DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 	| spotterSources |
 	"Halt now."
-	spotterSources := (self sources asAsyncStream collect: [ :e | e source ]) withoutDuplicates useIdentityComparison.
+	spotterSources := (self sources asOrderedCollection asAsyncStream collect: [ :e | e source ]) withoutDuplicates useIdentityComparison.
 	^ spotterSources flatCollect: [ :source | source gtSpotterSearchesInContext: aSpotterContext ].
 ]
 
