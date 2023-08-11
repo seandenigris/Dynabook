@@ -58,6 +58,21 @@ DbObjectUIDReference >> detectUID: anObject ifNone: noneBlock [
 ]
 
 { #category : #accessing }
+DbObjectUIDReference >> displayStringOn: aStream [
+
+	self sourceClassName ifNotNil: [ :clsName | 
+		aStream nextPutAll: clsName ].
+		
+	self sourceGetter ifNotNil: [ :aSel | 
+		aStream << ' > '.
+		aStream nextPutAll: aSel ].
+	
+	self collectionGetter ifNotNil: [ :aSel | 
+		aStream << ' > '.
+		aStream nextPutAll: aSel ].
+]
+
+{ #category : #accessing }
 DbObjectUIDReference >> hash [
 
 	^ ((super hash bitXor: self collectionGetter hash) bitXor: self sourceClassName hash) bitXor: self sourceGetter hash
@@ -69,6 +84,12 @@ DbObjectUIDReference >> object [
 	^ self 
 		detectUID: uid
 		ifNone: [ nil ]
+]
+
+{ #category : #accessing }
+DbObjectUIDReference >> printOn: aStream [
+
+	self printFromDisplayStringOn: aStream
 ]
 
 { #category : #accessing }
