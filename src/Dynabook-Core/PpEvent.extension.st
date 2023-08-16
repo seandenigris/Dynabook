@@ -15,13 +15,6 @@ PpEvent >> hasRecording [
 ]
 
 { #category : #'*Dynabook-Core' }
-PpEvent >> newPlayer [
-	self hasRecording ifTrue: [ ^ self ensureRecording newPlayer ].
-	self isInProgress ifFalse: [ ^ PpHistoricalPlayer new ].
-	^ PpLivePlayer new
-]
-
-{ #category : #'*Dynabook-Core' }
 PpEvent >> oneNotePage [
 
 	^ self 
