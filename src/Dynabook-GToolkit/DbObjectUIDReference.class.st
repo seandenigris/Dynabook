@@ -19,13 +19,15 @@ DbObjectUIDReference >> = rhs [
 
 	super = rhs ifFalse: [ ^ false ].
 	
-	self collectionGetter = rhs collectionGetter ifFalse: [ ^ false ].
-	
+	"Most likely local state to vary because typically one collection per class"
 	self sourceClassName = rhs sourceClassName ifFalse: [ ^ false ].
 	
+	self collectionGetter = rhs collectionGetter ifFalse: [ ^ false ].
+	
+	"Least likely to vary because Dynabook uses a standard singleton accessor"
 	self sourceGetter = rhs sourceGetter ifFalse: [ ^ false ].
 	
-	^ true
+	^ true.
 ]
 
 { #category : #accessing }
