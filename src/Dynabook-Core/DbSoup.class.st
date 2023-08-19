@@ -66,52 +66,7 @@ DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 ]
 
 { #category : #accessing }
-DbSoup >> initializeSources [
-
-	sources := { 
-		DbObjectUIDReference new
-			sourceClass: CwSoftwareCatalog;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: LlLibrary;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: MpAddressBook;
-			yourself.
-			
-		PpEventUIDReference new
-			sourceClass: PpEventLog;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: PpProjectList;
-			yourself.
-		
-		DbObjectUIDReference new
-			sourceClass: PpInventory;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: PpLocationList;
-			yourself.
-		
-		DbObjectUIDReference new
-			sourceClass: RlResourceLibrary;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: LlLibrary;
-			collectionGetter: #copies;
-			yourself.
-	} asSet.
-]
-
-{ #category : #accessing }
 DbSoup >> sources [
 
-	sources ifNil: [ self initializeSources ].
-	
-	^ sources
+	sources ifNil: [ sources := Set new ].
 ]

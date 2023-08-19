@@ -129,6 +129,7 @@ BaselineOfDynabook >> baseline: spec [
 			baseline: 'VirtualStash' with: [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec
+			postLoadDoIt: #postLoad;
 			package: 'Dynabook-Core' with: [ spec requires: #('SimplePersistence') ];
 			package: 'Dynabook-Persistence' with: [ spec requires: #('Broadcastify' 'Dynabook-Core' 'SimplePersistence') ] ].
 	
@@ -150,37 +151,11 @@ BaselineOfDynabook >> customProjectAttributes [
 
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
-	OlObjectPageType 
-		modelReferenceForClass: CwSoftware 
-			builder: [ 
-				DbObjectUIDReference new
-					sourceClass: CwSoftwareCatalog;
-					yourself ];
-		modelReferenceForClass: LlAuthoredWork 
-			builder: [ 
-				DbObjectUIDReference new
-					sourceClass: LlLibrary;
-					yourself ];
-		modelReferenceForClass: MpRelatableEntity
-			builder: [ 
-				DbObjectUIDReference new
-					sourceClass: MpAddressBook;
-					yourself ];
-		modelReferenceForClass: PpEvent 
-			builder: [ 
-				PpEventUIDReference new
-					sourceClass: PpEventLog;
-					yourself ];
-		modelReferenceForClass: PpInventoryItem 
-			builder: [ 
-				DbObjectUIDReference new
-					sourceClass: PpInventory;
-					yourself ];
-		modelReferenceForClass: PpValue 
-			builder: [ 
-				DbObjectUIDReference new
-					sourceClass: PpProjectList;
-					yourself ].
+	
+	self olReferenceBuilderMap keysAndValuesDo: [ :aClass :aBlock |
+		OlObjectPageType 
+			modelReferenceForClass: aClass 
+			builder: aBlock ].
 					
 	QuLeSources providers: { 
 		PpEventUIDReference new
@@ -200,4 +175,54 @@ BaselineOfDynabook >> isGTImage [
 	
 	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'Lepiter-' ].
 	"Implementation note: used to check for GToolkit prefix, but P7 has a GToolkit-Examples package. Lepiter, OTOH, could only be loaded in a GT image"
+]
+
+{ #category : #accessing }
+BaselineOfDynabook >> olReferenceBuilderMap [
+	
+		^ Dictionary new
+			at: CwSoftware put: [ 
+				DbObjectUIDReference new
+					sourceClass: CwSoftwareCatalog;
+					yourself ];
+			at: LlAuthoredWork put: [ 
+				DbObjectUIDReference new
+					sourceClass: LlLibrary;
+					yourself ];
+			at: MpRelatableEntity put: [ 
+				DbObjectUIDReference new
+					sourceClass: MpAddressBook;
+					yourself ];
+			at: PpEvent put: [ 
+				PpEventUIDReference new
+					sourceClass: PpEventLog;
+					yourself ];
+			at: PpInventoryItem put: [ 
+				DbObjectUIDReference new
+					sourceClass: PpInventory;
+					yourself ];
+			at: PpLocation put: [ 
+				DbObjectUIDReference new
+					sourceClass: PpLocationList;
+					yourself ];
+			at: PpValue put: [ 
+				DbObjectUIDReference new
+					sourceClass: PpProjectList;
+					yourself ];
+			at: RlResource put: [ 
+				DbObjectUIDReference new
+					sourceClass: RlResourceLibrary;
+					yourself ];
+			at: LlLibraryItem put: [ 
+				DbObjectUIDReference new
+					sourceClass: LlLibrary;
+					collectionGetter: #copies;
+					yourself ]
+]
+
+{ #category : #accessing }
+BaselineOfDynabook >> postLoad [
+	
+	self olReferenceBuilderMap do: [ :aBlock |
+		DbSoup uniqueInstance sources add: aBlock value ].
 ]
