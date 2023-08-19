@@ -217,7 +217,8 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
 					collectionGetter: #copies;
-					yourself ]
+					yourself ];
+			yourself
 ]
 
 { #category : #accessing }
