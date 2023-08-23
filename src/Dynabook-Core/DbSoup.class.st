@@ -68,5 +68,5 @@ DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 { #category : #accessing }
 DbSoup >> sources [
 
-	sources ifNil: [ sources := Set new ].
+	^ sources ifNil: [ sources := Set new ].
 ]
