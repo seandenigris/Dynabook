@@ -152,6 +152,8 @@ BaselineOfDynabook >> customProjectAttributes [
 { #category : #accessing }
 BaselineOfDynabook >> gtPostLoad [
 	
+	self postLoad.
+	
 	self olReferenceBuilderMap keysAndValuesDo: [ :aClass :aBlock |
 		OlObjectPageType 
 			modelReferenceForClass: aClass 
