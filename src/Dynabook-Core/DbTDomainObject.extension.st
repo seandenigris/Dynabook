@@ -1,7 +1,7 @@
-Extension { #name : #MATPropertyOwner }
+Extension { #name : #DbTDomainObject }
 
 { #category : #'*Dynabook-Core' }
-MATPropertyOwner >> dbUIDReference [
+DbTDomainObject >> dbUIDReference [
 	^ DbObjectUIDReference new
 		uid: self ensureUUID;
 		yourself
