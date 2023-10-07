@@ -11,11 +11,17 @@ DynabookDB class >> backupDirectoryParent [
 ]
 
 { #category : #accessing }
+DynabookDB class >> dataVersion [
+
+	^ 2
+]
+
+{ #category : #accessing }
 DynabookDB class >> metadata [
 
-	^ { 
-		#gitCommit -> self package peIceRepository workingCopy referenceCommit id
-	} asDictionary
+	^ super metadata
+		at: #gitCommit put: self package peIceRepository workingCopy referenceCommit id;
+		yourself
 ]
 
 { #category : #'loading/saving' }
@@ -34,4 +40,24 @@ DynabookDB class >> schema [
 		UkuleleDB.
 		VirtualStashDB.
 	}
+]
+
+{ #category : #migrations }
+DynabookDB class >> version2Migration [
+	<dataMigration>
+
+	| copyMaterials |
+	copyMaterials := [ :inst |
+		inst supportMaterials: (inst instVarNamed: #supportMaterials) ].
+
+	^ SpDataMigration new
+		dataVersion: 2;
+		preMaterialize: [ 
+			PpEvent addInstVarNamed: #supportMaterials.
+			PpValue addInstVarNamed: #supportMaterials ];
+		postMaterialize: [
+			PpEvent allSubInstances do: copyMaterials.
+			PpValue allSubInstances do: copyMaterials.
+			PpEvent removeInstVarNamed: #supportMaterials.
+			PpValue removeInstVarNamed: #supportMaterials ]
 ]
