@@ -65,6 +65,34 @@ BaselineOfDynabook class >> dataFolder [
 	^ FileLocator dynabookData / 'Dynabook'
 ]
 
+{ #category : #utilites }
+BaselineOfDynabook class >> fuelPreLoad [
+	"Needed for Fuel 5.1.0 to load cleanly (at least on GT)"
+
+	| fuelPackages |
+	fuelPackages := RPackage organizer packages
+			select: [ :e | e name beginsWith: 'Fuel-' ].
+	fuelPackages do: #removeFromSystem
+]
+
+{ #category : #utilites }
+BaselineOfDynabook class >> lepiterReloadLogicalDBFromPropertiesFile: aFileReference [
+
+	| props |
+	props := LeLogicalDatabaseProperties 
+		forPropertiesFile: aFileReference
+		ifAbsentUse: [].
+		
+	LeDatabasesRegistry defaultLogicalDatabase
+		properties: props;
+		reload.
+]
+
+{ #category : #utilites }
+BaselineOfDynabook class >> pipEnvPostLoad [
+	LlPlaywright install.
+]
+
 { #category : #accessing }
 BaselineOfDynabook class >> readme [
 
