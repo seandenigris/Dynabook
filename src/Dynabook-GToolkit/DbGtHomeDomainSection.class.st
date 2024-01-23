@@ -38,6 +38,7 @@ DbGtHomeDomainSection >> create [
 		addChild: self addressBookButton create;
 		addChild: self booksButton create;
 		addChild: self eventLogButton create;
+		addChild: self ppDailyNoteButton create;
 		addChild: self ppInventoryButton create;
 		addChild: self ppLocationListButton create;
 		addChild: self livingLibraryButton create;
@@ -80,6 +81,19 @@ DbGtHomeDomainSection >> livingLibraryButton [
 		iconFileNamed: 'noun-library-book-4329851.png'
 		tooltip: 'Inspect default library'
 		inspecting: [ LlLibrary uniqueInstance ]
+]
+
+{ #category : #stencils }
+DbGtHomeDomainSection >> ppDailyNoteButton [
+	
+	^ self
+		buttonTitled: 'Daily Note'
+		iconFileNamed: ''
+		tooltip: 'Create a TPP note for today'
+		inspecting: [ 
+			| page |
+			page := LePage journalOn: Date today.
+			LeDatabasesRegistry defaultPrimaryDatabase addPage: page ]
 ]
 
 { #category : #stencils }
