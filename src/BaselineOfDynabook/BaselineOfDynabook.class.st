@@ -152,18 +152,30 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Baby-Sign-Language' ];
 			baseline: 'Broadcastify' with: [
 				spec repository: 'github://seandenigris/Broadcastify-Alive' ];
+			baseline: 'ClickUp' with: [
+				spec repository: 'github://seandenigris/ClickUp-St' ];
 			baseline: 'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
+			baseline: 'DynabookFoundation' with: [
+				spec repository: 'github://seandenigris/Dynabook-Foundation' ];
 			baseline: 'FITProtocol' with: [
 				spec repository: 'github://seandenigris/FITProtocol4GToolkit' ];
 			baseline: 'FlashcardsSt' with: [
 				spec repository: 'github://seandenigris/Flashcards' ];
 			baseline: 'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
+			baseline: 'LivingLibrary' with: [
+				spec repository: 'github://seandenigris/Living-Library' ];
+			baseline: 'MSAL' with: [
+				spec repository: 'github://seandenigris/MSAL-Smalltalk' ];
+			baseline: 'MyPeople' with: [
+				spec repository: 'github://SeanDeNigris/My-People' ];
 			baseline: 'Nature' with: [
 				spec repository: 'github://seandenigris/Nature' ];
 			baseline: 'PharoEnhancements' with: [
 				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
+			baseline: 'ResourcesLive' with: [
+				spec repository: 'github://seandenigris/Resources-Live' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'SmallWorld' with: [
@@ -176,8 +188,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec
 			postLoadDoIt: #postLoad;
-			package: 'Dynabook-Core' with: [ spec requires: #('SimplePersistence') ];
-			package: 'Dynabook-Persistence' with: [ spec requires: #('Broadcastify' 'Dynabook-Core' 'SimplePersistence') ] ].
+			package: 'Dynabook-Core' with: [ spec requires: #('ComputerWorld' 'DynabookFoundation' 'LivingLibrary' 'MSAL' 'MyPeople' 'TheProjectProject' 'ResourcesLive') ];
+			package: 'Dynabook-Persistence' with: [ spec requires: #('Dynabook-Core' 'SimplePersistence') ] ].
 	
 	spec for: #GToolkit do: [ 
 		spec
