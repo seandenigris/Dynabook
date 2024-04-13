@@ -139,6 +139,8 @@ BaselineOfDynabook class >> lepiterReloadLogicalDBFromPropertiesFile: aFileRefer
 
 { #category : #utilites }
 BaselineOfDynabook class >> pipEnvPostLoad [
+	
+	PBApplication cwInstallAllModules.
 	LlPlaywright install.
 ]
 
