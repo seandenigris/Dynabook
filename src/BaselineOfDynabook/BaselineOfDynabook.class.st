@@ -251,6 +251,11 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
 					yourself ];
+			at: LlLibraryItem put: [ 
+				DbObjectUIDReference new
+					sourceClass: LlLibrary;
+					collectionGetter: #copies;
+					yourself ];
 			at: MpRelatableEntity put: [ 
 				DbObjectUIDReference new
 					sourceClass: MpAddressBook;
@@ -275,10 +280,9 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 				DbObjectUIDReference new
 					sourceClass: RlResourceLibrary;
 					yourself ];
-			at: LlLibraryItem put: [ 
+			at: SmallProject put: [ 
 				DbObjectUIDReference new
-					sourceClass: LlLibrary;
-					collectionGetter: #copies;
+					sourceClass: SmallProjectRegistry;
 					yourself ];
 			yourself
 ]
