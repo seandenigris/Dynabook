@@ -220,12 +220,17 @@ BaselineOfDynabook >> gtPostLoad [
 			builder: aBlock ].
 					
 	QuLeSources providers: { 
-		PpEventUIDReference new
-			sourceClass: PpEventLog;
-			yourself.
 
 		DbObjectUIDReference new
 			sourceClass: LlLibrary;
+			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: LlWorkplace;
+			yourself.
+			
+		PpEventUIDReference new
+			sourceClass: PpEventLog;
 			yourself.
 			
 		QuSnippetSource new.
@@ -255,6 +260,10 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 				DbObjectUIDReference new
 					sourceClass: LlLibrary;
 					collectionGetter: #copies;
+					yourself ];
+			at: LlWorkplaceComment put: [ 
+				DbObjectUIDReference new
+					sourceClass: LlWorkplace;
 					yourself ];
 			at: MpRelatableEntity put: [ 
 				DbObjectUIDReference new
