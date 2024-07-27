@@ -293,6 +293,10 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 				DbObjectUIDReference new
 					sourceClass: SmallProjectRegistry;
 					yourself ];
+			at: VsPrice put: [ 
+				DbObjectUIDReference new
+					sourceClass: VsPriceList;
+					yourself ];
 			yourself
 ]
 
