@@ -118,7 +118,11 @@ BaselineOfDynabook class >> dataFolder [
 BaselineOfDynabook class >> fuelPreLoad [
 	"Needed for Fuel 5.1.0 to load cleanly (at least on GT)"
 
-	| fuelPackages |
+	| fuelPackages fuelVersion |
+	
+	fuelVersion := FLVersion current.
+	(fuelVersion major >= 5 and: [ fuelVersion minor >= 2 and: [ fuelVersion patch >= 1 ] ]) ifTrue: [ ^ self ].
+	
 	fuelPackages := RPackage organizer packages
 			select: [ :e | e name beginsWith: 'Fuel-' ].
 	fuelPackages do: #removeFromSystem
