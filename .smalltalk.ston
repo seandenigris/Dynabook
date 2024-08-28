@@ -3,10 +3,9 @@ SmalltalkCISpec {
     SCIMetacelloLoadSpec {
       #baseline : 'Dynabook',
       #directory : 'src',
-      #platforms : [ #pharo ]
+      #onConflict : #useIncoming
     }
   ],
   #testing : {
-    #failOnZeroTests : false
-  }
+      #failOnZeroTests : false  }
 }
