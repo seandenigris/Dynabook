@@ -154,56 +154,56 @@ BaselineOfDynabook >> baseline: spec [
 
 	spec for: #'common' do: [
 		spec
-			baseline: 'BabySignLanguage' with: [
+			baseline: #'BabySignLanguage' with: [
 				spec repository: 'github://seandenigris/Baby-Sign-Language' ];
-			baseline: 'Broadcastify' with: [
+			baseline: #'Broadcastify' with: [
 				spec repository: 'github://seandenigris/Broadcastify-Alive' ];
-			baseline: 'ClickUp' with: [
+			baseline: #'ClickUp' with: [
 				spec repository: 'github://seandenigris/ClickUp-St' ];
-			baseline: 'ComputerWorld' with: [
+			baseline: #'ComputerWorld' with: [
 				spec repository: 'github://seandenigris/Computer-World' ];
-			baseline: 'DynabookFoundation' with: [
+			baseline: #'DynabookFoundation' with: [
 				spec repository: 'github://seandenigris/Dynabook-Foundation' ];
-			baseline: 'FITProtocol' with: [
+			baseline: #'FITProtocol' with: [
 				spec repository: 'github://seandenigris/FITProtocol4GToolkit' ];
-			baseline: 'FlashcardsSt' with: [
+			baseline: #'FlashcardsSt' with: [
 				spec repository: 'github://seandenigris/Flashcards' ];
-			baseline: 'Ideas' with: [
+			baseline: #'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
-			baseline: 'LivingLibrary' with: [
+			baseline: #'LivingLibrary' with: [
 				spec repository: 'github://seandenigris/Living-Library' ];
-			baseline: 'MSAL' with: [
+			baseline: #'MSAL' with: [
 				spec repository: 'github://seandenigris/MSAL-Smalltalk' ];
-			baseline: 'MyPeople' with: [
+			baseline: #'MyPeople' with: [
 				spec repository: 'github://SeanDeNigris/My-People' ];
-			baseline: 'Nature' with: [
+			baseline: #'Nature' with: [
 				spec repository: 'github://seandenigris/Nature' ];
-			baseline: 'PharoEnhancements' with: [
+			baseline: #'PharoEnhancements' with: [
 				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
-			baseline: 'ResourcesLive' with: [
+			baseline: #'ResourcesLive' with: [
 				spec repository: 'github://seandenigris/Resources-Live' ];
-			baseline: 'SimplePersistence' with: [
+			baseline: #'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
-			baseline: 'SmallWorld' with: [
+			baseline: #'SmallWorld' with: [
 				spec repository: 'github://seandenigris/SmallWorld' ];
-			baseline: 'TheProjectProject' with: [
+			baseline: #'TheProjectProject' with: [
 				spec repository: 'github://seandenigris/The-Project-Project' ];
-			baseline: 'Ukulele' with: [
+			baseline: #'Ukulele' with: [
 				spec repository: 'github://seandenigris/Ukulele-Pharo' ];
-			baseline: 'VirtualStash' with: [
+			baseline: #'VirtualStash' with: [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec
 			postLoadDoIt: #postLoad;
-			package: 'Dynabook-Core' with: [ spec requires: #('ComputerWorld' 'DynabookFoundation' 'LivingLibrary' 'MSAL' 'MyPeople' 'TheProjectProject' 'ResourcesLive') ];
-			package: 'Dynabook-Persistence' with: [ spec requires: #('Dynabook-Core' 'SimplePersistence') ] ].
+			package: #'Dynabook-Core' with: [ spec requires: #(ComputerWorld DynabookFoundation LivingLibrary MSAL MyPeople TheProjectProject ResourcesLive) ];
+			package: #'Dynabook-Persistence' with: [ spec requires: #(#'Dynabook-Core' SimplePersistence) ] ].
 	
 	spec for: #GToolkit do: [ 
 		spec
-			baseline: 'ObjectiveLepiter' with: [
+			baseline: #ObjectiveLepiter with: [
 				spec repository: 'github://seandenigris/Objective-Lepiter' ].
 		spec 
 			postLoadDoIt: #gtPostLoad;
-			package: 'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter PharoEnhancements) ] ]
+			package: #'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter PharoEnhancements) ] ]
 ]
 
 { #category : #accessing }
