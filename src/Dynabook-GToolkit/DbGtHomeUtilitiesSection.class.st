@@ -1,6 +1,6 @@
 Class {
 	#name : #DbGtHomeUtilitiesSection,
-	#superclass : #GtHomeSection,
+	#superclass : #GtHomeMultiCardSection,
 	#classVars : [
 		'DataDB'
 	],
@@ -14,10 +14,14 @@ DbGtHomeUtilitiesSection class >> dataDB: anSpFileDatabaseClass [
 ]
 
 { #category : #stencils }
-DbGtHomeUtilitiesSection >> baselineButton [
-	^ GtToolButtonStencil new 
-		title: 'Baseline';
-		icon: BrGlamorousVectorIcons largeBook;
+DbGtHomeUtilitiesSection >> baselineCard [
+	<gtSectionCard>
+
+	^ self
+		buttonPriority: 30
+		titled: 'Baseline'
+		icon: BrGlamorousVectorIcons largeBook
+		tooltip: ''
 		action: [ :card | 
 			self
 				showSpaceWithIcon: BrGlamorousVectorIcons emphasizedBrowse
@@ -27,41 +31,27 @@ DbGtHomeUtilitiesSection >> baselineButton [
 ]
 
 { #category : #stencils }
-DbGtHomeUtilitiesSection >> bridgeButton [
-	| icon |
-	icon := self iconFromFileNamed: 'noun-bridge-4982741.png'.
-	^ GtToolButtonStencil new 
-		title: 'PBridge - Restart';
-		icon: icon;
-		iconSize: 50@50;
+DbGtHomeUtilitiesSection >> bridgeCard [
+	<gtSectionCard>
+
+	^ self
+		buttonPriority: 20
+		titled: 'PBridge - Restart'
+		icon: 'noun-bridge-4982741.png'
+		tooltip: 'Stop and then start PBApplication'
 		action: [ :card | 
 			PBApplication stop; start.
-			UIManager default inform: 'Python Bridge Restarted' ];
-		description: 'Stop and then start PBApplication'.
-]
-
-{ #category : #'api - instantiation' }
-DbGtHomeUtilitiesSection >> create [
-	| cardsContainer sectionContainer |
-	sectionContainer := self newSectionContainer.
-	sectionContainer addChild: (self newSectionTitle: 'Dynabook - Utilities').
-
-	cardsContainer := self newCardsContainer
-		addChild: self dataButton create;
-		addChild: self bridgeButton create;
-		addChild: self baselineButton create;
-		addChild: self updateHomeButton create;
-		yourself.
-		
-	sectionContainer addChild: cardsContainer.
-	^ sectionContainer
+			UIManager default inform: 'Python Bridge Restarted' ]
 ]
 
 { #category : #stencils }
-DbGtHomeUtilitiesSection >> dataButton [
+DbGtHomeUtilitiesSection >> dataCard [
+	<gtSectionCard>
+
 	^ self
-		buttonTitled: 'SP Data'
-		iconFileNamed: 'noun-database-4716694.png'
+		buttonPriority: 10
+		titled: 'SP Data'
+		icon: 'noun-database-4716694.png'
 		tooltip: 'Inspect persisted DB'
 		inspecting: [ self dataDB ]
 ]
@@ -72,17 +62,30 @@ DbGtHomeUtilitiesSection >> dataDB [
 ]
 
 { #category : #accessing }
+DbGtHomeUtilitiesSection >> defaultPriority [
+	^ 20
+]
+
+{ #category : #accessing }
 DbGtHomeUtilitiesSection >> iconFolder [
 	^ BaselineOfDynabook iconFolder
 ]
 
+{ #category : #'api - instantiation' }
+DbGtHomeUtilitiesSection >> sectionTitle [
+	
+	^ 'Dynabook - Utilities'
+]
+
 { #category : #stencils }
-DbGtHomeUtilitiesSection >> updateHomeButton [
-	^ GtToolButtonStencil new 
-		title: 'Update These';
-		icon: (self iconFromFileNamed: 'noun-home-323099.png');
-		iconSize: 55@55;
-		action: [ :card | 
-			GtHome allInstances do: #updateSections ];
-		description: 'Refresh after making changes'.
+DbGtHomeUtilitiesSection >> updateHomeCard [
+	<gtSectionCard>
+
+	^ self
+		buttonPriority: 40
+		titled: 'Update These'
+		icon: 'noun-home-323099.png'
+		"iconSize: 55@55;"
+		tooltip: 'Refresh after making changes'
+		action: [ :card | GtHome allInstances do: #updateSections ]
 ]

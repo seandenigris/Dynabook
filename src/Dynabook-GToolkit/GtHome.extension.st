@@ -10,6 +10,6 @@ GtHome >> dynabookDomainSection [
 { #category : #'*Dynabook-GToolkit' }
 GtHome >> dynabookUtilitiesSection [
 	<gtHomeSection>
+	
 	^ DbGtHomeUtilitiesSection new
-		priority: 7
 ]

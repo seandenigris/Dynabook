@@ -11,7 +11,7 @@ DbGtHomeDomainSection >> addressBookCard [
 	^ self
 		buttonPriority: 10
 		titled: 'Address Book'
-		iconFileNamed: 'noun-address-book-148913.png'
+		icon: 'noun-address-book-148913.png'
 		tooltip: 'Inspect default address book'
 		inspecting: [ MpAddressBook uniqueInstance ]
 ]
@@ -23,7 +23,7 @@ DbGtHomeDomainSection >> booksCard [
 	^ self
 		buttonPriority: 20
 		titled: 'Books - Personal'
-		iconFileNamed: 'noun-financial-advice-book-4450943.png'
+		icon: 'noun-financial-advice-book-4450943.png'
 		tooltip: 'Inspect personal books'
 		inspecting: [ VsBooks personal ]
 ]
@@ -35,7 +35,7 @@ DbGtHomeDomainSection >> dailyNoteCard [
 	^ self
 		buttonPriority: 40
 		titled: 'Daily Note'
-		iconFileNamed: ''
+		icon: ''
 		tooltip: 'Create a TPP note for today'
 		inspecting: [ 
 			| page |
@@ -55,7 +55,7 @@ DbGtHomeDomainSection >> eventLogCard [
 	^ self
 		buttonPriority: 30
 		titled: 'Event Log'
-		iconFileNamed: 'noun-calendar-4979381.png'
+		icon: 'noun-calendar-4979381.png'
 		tooltip: 'Inspect default event log'
 		inspecting: [ PpEventLog uniqueInstance ]
 ]
@@ -72,7 +72,7 @@ DbGtHomeDomainSection >> inventoryCard [
 	^ self
 		buttonPriority: 50
 		titled: 'Inventory'
-		iconFileNamed: 'noun-inventory-2895895.png'
+		icon: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Inventory'
 		inspecting: [ PpInventory uniqueInstance ]
 ]
@@ -84,7 +84,7 @@ DbGtHomeDomainSection >> livingLibraryCard [
 	^ self
 		buttonPriority: 70
 		titled: 'LL Library'
-		iconFileNamed: 'noun-library-book-4329851.png'
+		icon: 'noun-library-book-4329851.png'
 		tooltip: 'Inspect default library'
 		inspecting: [ LlLibrary uniqueInstance ]
 ]
@@ -96,7 +96,7 @@ DbGtHomeDomainSection >> locationsCard [
 	^ self
 		buttonPriority: 60
 		titled: 'Locations'
-		iconFileNamed: 'noun-inventory-2895895.png'
+		icon: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Location List'
 		inspecting: [ PpLocationList uniqueInstance ]
 ]
@@ -108,7 +108,7 @@ DbGtHomeDomainSection >> networkedDevicesCard [
 	^ self
 		buttonPriority: 80
 		titled: 'Network Devices'
-		iconFileNamed: 'noun-computer-network-1836808.png'
+		icon: 'noun-computer-network-1836808.png'
 		tooltip: 'Inspect devices'
 		inspecting: [ CwNetworkDevice db ]
 ]
@@ -120,7 +120,7 @@ DbGtHomeDomainSection >> projectListCard [
 	^ self
 		buttonPriority: 90
 		titled: 'Projects'
-		iconFileNamed: 'noun-project-2662138.png'
+		icon: 'noun-project-2662138.png'
 		tooltip: 'Inspect default project list'
 		inspecting: [ PpProjectList uniqueInstance ]
 ]
@@ -132,7 +132,7 @@ DbGtHomeDomainSection >> resourceLibraryCard [
 	^ self
 		buttonPriority: 100
 		titled: 'Resource Library'
-		iconFileNamed: 'noun-file-4980207.png'
+		icon: 'noun-file-4980207.png'
 		tooltip: 'Inspect default resource library'
 		inspecting: [ RlResourceLibrary uniqueInstance ]
 ]
