@@ -1,10 +1,10 @@
 Extension { #name : #GtHome }
 
 { #category : #'*Dynabook-GToolkit' }
-GtHome >> dynabookSection [
+GtHome >> dynabookDomainSection [
 	<gtHomeSection>
+	
 	^ DbGtHomeDomainSection new
-		priority: 6
 ]
 
 { #category : #'*Dynabook-GToolkit' }

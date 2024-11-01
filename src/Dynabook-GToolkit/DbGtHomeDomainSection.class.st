@@ -1,93 +1,40 @@
 Class {
 	#name : #DbGtHomeDomainSection,
-	#superclass : #GtHomeSection,
+	#superclass : #GtHomeMultiCardSection,
 	#category : #'Dynabook-GToolkit'
 }
 
-{ #category : #accessing }
-DbGtHomeDomainSection class >> dataDB: anSpFileDatabaseClass [
-
-	DataDB := anSpFileDatabaseClass
-]
-
-{ #category : #stencils }
-DbGtHomeDomainSection >> addressBookButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> addressBookCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Address Book'
+		buttonPriority: 10
+		titled: 'Address Book'
 		iconFileNamed: 'noun-address-book-148913.png'
 		tooltip: 'Inspect default address book'
 		inspecting: [ MpAddressBook uniqueInstance ]
 ]
 
-{ #category : #stencils }
-DbGtHomeDomainSection >> booksButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> booksCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Books - Personal'
+		buttonPriority: 20
+		titled: 'Books - Personal'
 		iconFileNamed: 'noun-financial-advice-book-4450943.png'
 		tooltip: 'Inspect personal books'
 		inspecting: [ VsBooks personal ]
 ]
 
-{ #category : #'api - instantiation' }
-DbGtHomeDomainSection >> create [
-	| cardsContainer sectionContainer |
-	sectionContainer := self newSectionContainer.
-	sectionContainer addChild: (self newSectionTitle: 'Dynabook').
-
-	cardsContainer := self newCardsContainer
-		addChild: self addressBookButton create;
-		addChild: self booksButton create;
-		addChild: self eventLogButton create;
-		addChild: self ppDailyNoteButton create;
-		addChild: self ppInventoryButton create;
-		addChild: self ppLocationListButton create;
-		addChild: self livingLibraryButton create;
-		addChild: self cwNetworkedDeviceButton create;
-		addChild: self projectListButton create;
-		addChild: self resourceLibraryButton create;
-		yourself.
-		
-	sectionContainer addChild: cardsContainer.
-	^ sectionContainer
-]
-
-{ #category : #stencils }
-DbGtHomeDomainSection >> cwNetworkedDeviceButton [
-	^ self
-		buttonTitled: 'Network Devices'
-		iconFileNamed: 'noun-computer-network-1836808.png'
-		tooltip: 'Inspect devices'
-		inspecting: [ CwNetworkDevice db ]
-]
-
-{ #category : #stencils }
-DbGtHomeDomainSection >> eventLogButton [
-	^ self
-		buttonTitled: 'Event Log'
-		iconFileNamed: 'noun-calendar-4979381.png'
-		tooltip: 'Inspect default event log'
-		inspecting: [ PpEventLog uniqueInstance ]
-]
-
-{ #category : #accessing }
-DbGtHomeDomainSection >> iconFolder [
-	^ BaselineOfDynabook iconFolder
-]
-
-{ #category : #stencils }
-DbGtHomeDomainSection >> livingLibraryButton [
-	^ self
-		buttonTitled: 'LL Library'
-		iconFileNamed: 'noun-library-book-4329851.png'
-		tooltip: 'Inspect default library'
-		inspecting: [ LlLibrary uniqueInstance ]
-]
-
-{ #category : #stencils }
-DbGtHomeDomainSection >> ppDailyNoteButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> dailyNoteCard [
+	<gtSectionCard>
 	
 	^ self
-		buttonTitled: 'Daily Note'
+		buttonPriority: 40
+		titled: 'Daily Note'
 		iconFileNamed: ''
 		tooltip: 'Create a TPP note for today'
 		inspecting: [ 
@@ -96,38 +43,102 @@ DbGtHomeDomainSection >> ppDailyNoteButton [
 			LeDatabasesRegistry defaultPrimaryDatabase addPage: page ]
 ]
 
-{ #category : #stencils }
-DbGtHomeDomainSection >> ppInventoryButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> defaultPriority [
+	^ 10
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> eventLogCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Inventory'
+		buttonPriority: 30
+		titled: 'Event Log'
+		iconFileNamed: 'noun-calendar-4979381.png'
+		tooltip: 'Inspect default event log'
+		inspecting: [ PpEventLog uniqueInstance ]
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> iconFolder [
+	^ BaselineOfDynabook iconFolder
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> inventoryCard [
+	<gtSectionCard>
+	
+	^ self
+		buttonPriority: 50
+		titled: 'Inventory'
 		iconFileNamed: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Inventory'
 		inspecting: [ PpInventory uniqueInstance ]
 ]
 
-{ #category : #stencils }
-DbGtHomeDomainSection >> ppLocationListButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> livingLibraryCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Locations'
+		buttonPriority: 70
+		titled: 'LL Library'
+		iconFileNamed: 'noun-library-book-4329851.png'
+		tooltip: 'Inspect default library'
+		inspecting: [ LlLibrary uniqueInstance ]
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> locationsCard [
+	<gtSectionCard>
+	
+	^ self
+		buttonPriority: 60
+		titled: 'Locations'
 		iconFileNamed: 'noun-inventory-2895895.png'
 		tooltip: 'Inspect Location List'
 		inspecting: [ PpLocationList uniqueInstance ]
 ]
 
-{ #category : #stencils }
-DbGtHomeDomainSection >> projectListButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> networkedDevicesCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Projects'
+		buttonPriority: 80
+		titled: 'Network Devices'
+		iconFileNamed: 'noun-computer-network-1836808.png'
+		tooltip: 'Inspect devices'
+		inspecting: [ CwNetworkDevice db ]
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> projectListCard [
+	<gtSectionCard>
+	
+	^ self
+		buttonPriority: 90
+		titled: 'Projects'
 		iconFileNamed: 'noun-project-2662138.png'
 		tooltip: 'Inspect default project list'
 		inspecting: [ PpProjectList uniqueInstance ]
 ]
 
-{ #category : #stencils }
-DbGtHomeDomainSection >> resourceLibraryButton [
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> resourceLibraryCard [
+	<gtSectionCard>
+	
 	^ self
-		buttonTitled: 'Resource Library'
+		buttonPriority: 100
+		titled: 'Resource Library'
 		iconFileNamed: 'noun-file-4980207.png'
 		tooltip: 'Inspect default resource library'
 		inspecting: [ RlResourceLibrary uniqueInstance ]
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> sectionTitle [
+
+	^ 'Dynabook'
 ]
