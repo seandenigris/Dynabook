@@ -14,10 +14,13 @@ GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable
 
 	stencil := GtToolButtonStencil new 
 		title: aString;
-		icon: icon;
-		iconSize: 50@50;
 		action: aValuable;
 		description: tipString.
+		
+	icon ifNotNil: [ 
+		stencil
+			icon: icon;
+			iconSize: 50@50 ].
 		
 	^ GtHomeCard explicit
 		priority: aNumber;
