@@ -121,7 +121,7 @@ BaselineOfDynabook class >> fuelPreLoad [
 	| fuelPackages fuelVersion |
 	
 	fuelVersion := FLVersion current.
-	(fuelVersion major >= 5 and: [ fuelVersion minor >= 2 and: [ fuelVersion patch >= 1 ] ]) ifTrue: [ ^ self ].
+	(fuelVersion major >= 5 and: [ fuelVersion minor >= 2 and: [ fuelVersion patch >= 2 ] ]) ifTrue: [ ^ self ].
 	
 	fuelPackages := RPackage organizer packages
 			select: [ :e | e name beginsWith: 'Fuel-' ].
