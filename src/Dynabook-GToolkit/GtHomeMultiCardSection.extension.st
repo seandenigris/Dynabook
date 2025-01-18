@@ -7,10 +7,7 @@ GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable
 	iconable - can be icon itself, icon file, or icon path string"
 
 	| icon stencil |
-	icon := iconable.
-	iconable isString ifTrue: [ icon := self iconFromFileNamed: iconable ].
-	(iconable isKindOf: AbstractFileReference) 
-		ifTrue: [ icon := GtFileUtility imageElementFromFileReference: iconable ].
+	icon := self iconFrom: iconable.
 
 	stencil := GtToolButtonStencil new 
 		title: aString;
@@ -43,4 +40,12 @@ GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable
 					(GtInspector
 						createOn: aValuable value) maximized
 				from: card ]
+]
+
+{ #category : #'*Dynabook-GToolkit' }
+GtHomeMultiCardSection >> iconFrom: iconable [
+
+	iconable isString ifTrue: [ ^ self iconFromFileNamed: iconable ].
+	(iconable isKindOf: AbstractFileReference) 
+		ifTrue: [ ^ GtFileUtility imageElementFromFileReference: iconable ].
 ]
