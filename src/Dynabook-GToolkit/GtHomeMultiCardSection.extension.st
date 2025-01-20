@@ -48,4 +48,6 @@ GtHomeMultiCardSection >> iconFrom: iconable [
 	iconable isString ifTrue: [ ^ self iconFromFileNamed: iconable ].
 	(iconable isKindOf: AbstractFileReference) 
 		ifTrue: [ ^ GtFileUtility imageElementFromFileReference: iconable ].
+		
+	^ iconable
 ]
