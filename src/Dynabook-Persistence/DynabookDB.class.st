@@ -34,6 +34,7 @@ DynabookDB class >> schema [
 		DbMsalApp.
 		FlashcardsStDB.
 		IdeasDB.
+		JokesDB.
 		LivingLibraryDB.
 		SmallWorldDB.
 		TheProjectProjectDB.

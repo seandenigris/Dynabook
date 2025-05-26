@@ -170,6 +170,8 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Flashcards' ];
 			baseline: #'Ideas' with: [
  				spec repository: 'github://seandenigris/ideas' ];
+			baseline: #'Jokes' with: [
+				spec repository: 'github://seandenigris/Jokes' ];
 			baseline: #'LivingLibrary' with: [
 				spec repository: 'github://seandenigris/Living-Library' ];
 			baseline: #'MSAL' with: [
@@ -194,7 +196,7 @@ BaselineOfDynabook >> baseline: spec [
 				spec repository: 'github://seandenigris/Virtual-Stash' ].
 		spec
 			postLoadDoIt: #postLoad;
-			package: #'Dynabook-Core' with: [ spec requires: #(ComputerWorld DynabookFoundation LivingLibrary MSAL MyPeople TheProjectProject ResourcesLive) ];
+			package: #'Dynabook-Core' with: [ spec requires: #(ComputerWorld DynabookFoundation Jokes LivingLibrary MSAL MyPeople TheProjectProject ResourcesLive) ];
 			package: #'Dynabook-Persistence' with: [ spec requires: #(#'Dynabook-Core' SimplePersistence) ] ].
 	
 	spec for: #GToolkit do: [ 
