@@ -70,3 +70,13 @@ DbSoup >> sources [
 
 	^ sources ifNil: [ sources := Set new ].
 ]
+
+{ #category : #views }
+DbSoup >> sourcesGtViewFor: aView [
+	<gtView>
+	sources ifNil: [ ^ aView empty ].
+	^ aView columnedList
+		title: 'Sources';
+		items: [ sources asOrderedCollection ];
+		column: 'Value' text: [ :each | each displayString ]
+]
