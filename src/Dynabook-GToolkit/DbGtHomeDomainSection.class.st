@@ -35,7 +35,7 @@ DbGtHomeDomainSection >> dailyNoteCard [
 	^ self
 		buttonPriority: 40
 		titled: 'Daily Note'
-		icon: ''
+		icon: nil
 		tooltip: 'Create a TPP note for today'
 		inspecting: [ 
 			| page |
@@ -141,4 +141,16 @@ DbGtHomeDomainSection >> resourceLibraryCard [
 DbGtHomeDomainSection >> sectionTitle [
 
 	^ 'Dynabook'
+]
+
+{ #category : #'as yet unclassified' }
+DbGtHomeDomainSection >> softwareCatalogCard [
+	<gtSectionCard>
+	
+	^ self
+		buttonPriority: 110
+		titled: 'Software Catalog'
+		icon: nil
+		tooltip: 'Inspect default catalog'
+		inspecting: [ CwSoftwareCatalog uniqueInstance ]
 ]
