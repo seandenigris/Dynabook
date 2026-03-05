@@ -1,6 +1,6 @@
-Extension { #name : #PpEvent }
+Extension { #name : 'PpEvent' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpEvent >> ensureRecording [
 	^ self propertyAt: #recording ifAbsentPut: [ 
 		| recording |
@@ -9,12 +9,12 @@ PpEvent >> ensureRecording [
 		recording ]
 ]
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpEvent >> hasRecording [
 	^ self hasProperty: #recording
 ]
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpEvent >> oneNotePage [
 
 	^ self 

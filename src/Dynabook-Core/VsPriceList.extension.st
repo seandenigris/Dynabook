@@ -1,6 +1,6 @@
-Extension { #name : #VsPriceList }
+Extension { #name : 'VsPriceList' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 VsPriceList >> dbCollectionAccessor [
 
 	^ #prices

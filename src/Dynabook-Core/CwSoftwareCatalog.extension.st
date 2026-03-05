@@ -1,6 +1,6 @@
-Extension { #name : #CwSoftwareCatalog }
+Extension { #name : 'CwSoftwareCatalog' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 CwSoftwareCatalog >> dbCollectionAccessor [
 
 	^ #collection

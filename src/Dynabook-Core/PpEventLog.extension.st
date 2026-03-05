@@ -1,6 +1,6 @@
-Extension { #name : #PpEventLog }
+Extension { #name : 'PpEventLog' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpEventLog >> dbCollectionAccessor [
 
 	^ #events

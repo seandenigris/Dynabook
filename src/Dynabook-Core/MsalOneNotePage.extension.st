@@ -1,6 +1,6 @@
-Extension { #name : #MsalOneNotePage }
+Extension { #name : 'MsalOneNotePage' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 MsalOneNotePage >> dbImportMeeting [
 	| event |
 	event := self asPpEvent

@@ -1,13 +1,14 @@
 Class {
-	#name : #DbEventRecording,
-	#superclass : #LlAuthoredWork,
+	#name : 'DbEventRecording',
+	#superclass : 'LlAuthoredWork',
 	#instVars : [
 		'event'
 	],
-	#category : #'Dynabook-Core'
+	#category : 'Dynabook-Core',
+	#package : 'Dynabook-Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbEventRecording class >> of: aPpEvent [
 
 	^ self new
@@ -15,24 +16,24 @@ DbEventRecording class >> of: aPpEvent [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbEventRecording >> event [
 
 	^ event
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbEventRecording >> event: anObject [
 
 	event := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbEventRecording >> participants [
 	^ self event participants
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbEventRecording >> title [
 	^ self event displayString
 ]

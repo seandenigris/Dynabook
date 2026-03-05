@@ -1,6 +1,6 @@
-Extension { #name : #PpLocationList }
+Extension { #name : 'PpLocationList' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpLocationList >> dbCollectionAccessor [
 
 	^ #allChildren

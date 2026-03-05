@@ -1,1 +1,1 @@
-Package { #name : #'Dynabook-Core' }
+Package { #name : 'Dynabook-Core' }

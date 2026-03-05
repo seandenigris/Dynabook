@@ -1,6 +1,6 @@
-Extension { #name : #LlLibrary }
+Extension { #name : 'LlLibrary' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 LlLibrary >> dbCollectionAccessor [
 
 	^ #works

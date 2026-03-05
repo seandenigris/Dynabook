@@ -1,6 +1,6 @@
-Extension { #name : #PpProjectList }
+Extension { #name : 'PpProjectList' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpProjectList >> dbCollectionAccessor [
 
 	^ #allChildren

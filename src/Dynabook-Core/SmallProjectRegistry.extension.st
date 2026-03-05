@@ -1,6 +1,6 @@
-Extension { #name : #SmallProjectRegistry }
+Extension { #name : 'SmallProjectRegistry' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 SmallProjectRegistry >> dbCollectionAccessor [
 
 	^ #projects

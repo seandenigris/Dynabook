@@ -1,6 +1,6 @@
-Extension { #name : #PpInventory }
+Extension { #name : 'PpInventory' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 PpInventory >> dbCollectionAccessor [
 
 	^ #items

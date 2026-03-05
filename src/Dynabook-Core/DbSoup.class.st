@@ -2,25 +2,27 @@
 A facade presenting something like HPI's soup, a collection from which all interesting domain objects are easily reachable.
 "
 Class {
-	#name : #DbSoup,
-	#superclass : #Object,
+	#name : 'DbSoup',
+	#superclass : 'Object',
 	#instVars : [
 		'sources'
 	],
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : #'Dynabook-Core-Soup'
+	#category : 'Dynabook-Core-Soup',
+	#package : 'Dynabook-Core',
+	#tag : 'Soup'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup class >> detectUID: anObject [
 	"See instance-side comment"
 	
 	^ self uniqueInstance detectUID: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup class >> detectUID: anObject ifNone: noneBlock [
 	"See instance-side comment"
 	
@@ -29,12 +31,12 @@ DbSoup class >> detectUID: anObject ifNone: noneBlock [
 		ifNone: noneBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbSoup class >> uniqueInstance [
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup >> detectUID: anObject [
 	"anObject - must understand #olDetectUIDBlock. See implementors"
 	
@@ -43,7 +45,7 @@ DbSoup >> detectUID: anObject [
 		ifNone: [ self error: 'UID not found!' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup >> detectUID: anObject ifNone: noneBlock [
 	"anObject - must understand #olDetectUIDBlock. See implementors"
 	
@@ -57,7 +59,7 @@ DbSoup >> detectUID: anObject ifNone: noneBlock [
 	^ noneBlock value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 	| spotterSources |
 	"Halt now."
@@ -65,13 +67,13 @@ DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 	^ spotterSources flatCollect: [ :source | source gtSpotterSearchesInContext: aSpotterContext ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbSoup >> sources [
 
 	^ sources ifNil: [ sources := Set new ].
 ]
 
-{ #category : #views }
+{ #category : 'views' }
 DbSoup >> sourcesGtViewFor: aView [
 	<gtView>
 	sources ifNil: [ ^ aView empty ].

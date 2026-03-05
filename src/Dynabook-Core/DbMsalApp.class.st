@@ -1,56 +1,58 @@
 Class {
-	#name : #DbMsalApp,
-	#superclass : #MsalApplication,
+	#name : 'DbMsalApp',
+	#superclass : 'MsalApplication',
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : #'Dynabook-Core-MSAuthLibrary'
+	#category : 'Dynabook-Core-MSAuthLibrary',
+	#package : 'Dynabook-Core',
+	#tag : 'MSAuthLibrary'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DbMsalApp class >> initialize [
 	
 	SessionManager default 
 		registerUserClassNamed: self name
 ]
 
-{ #category : #resetting }
+{ #category : 'resetting' }
 DbMsalApp class >> reset [
 
 	self uniqueInstance reset
 ]
 
-{ #category : #persistence }
+{ #category : 'persistence' }
 DbMsalApp class >> restoreFrom: anObject [
 
 	UniqueInstance := anObject
 ]
 
-{ #category : #'startup/shutdown' }
+{ #category : 'startup/shutdown' }
 DbMsalApp class >> shutDown: isImageQuitting [
 
 	isImageQuitting ifTrue: [ self uniqueInstance logOut ]
 ]
 
-{ #category : #persistence }
+{ #category : 'persistence' }
 DbMsalApp class >> spData [
 
 	^ UniqueInstance
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DbMsalApp class >> uniqueInstance [
 
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbMsalApp class >> uniqueInstance: anObject [
 
 	UniqueInstance := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbMsalApp >> scopes [
 	^ { 'Notes.ReadWrite' }
 ]

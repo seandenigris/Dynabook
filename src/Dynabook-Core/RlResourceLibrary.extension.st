@@ -1,6 +1,6 @@
-Extension { #name : #RlResourceLibrary }
+Extension { #name : 'RlResourceLibrary' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 RlResourceLibrary >> dbCollectionAccessor [
 
 	^ #resources

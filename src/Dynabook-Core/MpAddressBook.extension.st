@@ -1,6 +1,6 @@
-Extension { #name : #MpAddressBook }
+Extension { #name : 'MpAddressBook' }
 
-{ #category : #'*Dynabook-Core' }
+{ #category : '*Dynabook-Core' }
 MpAddressBook >> dbCollectionAccessor [
 
 	^ #privateContacts
