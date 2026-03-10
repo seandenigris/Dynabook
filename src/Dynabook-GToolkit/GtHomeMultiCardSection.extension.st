@@ -1,6 +1,6 @@
-Extension { #name : #GtHomeMultiCardSection }
+Extension { #name : 'GtHomeMultiCardSection' }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable tooltip: tipString action: aValuable [
 	"Requires `#iconFolder` to be implemented
 	
@@ -25,7 +25,7 @@ GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable
 		yourself
 ]
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable tooltip: tipString inspecting: aValuable [
 	
 	^ self
@@ -42,7 +42,7 @@ GtHomeMultiCardSection >> buttonPriority: aNumber titled: aString icon: iconable
 				from: card ]
 ]
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 GtHomeMultiCardSection >> iconFrom: iconable [
 
 	iconable isString ifTrue: [ ^ self iconFromFileNamed: iconable ].

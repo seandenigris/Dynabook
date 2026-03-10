@@ -1,6 +1,6 @@
-Extension { #name : #BaselineOf }
+Extension { #name : 'BaselineOf' }
 
-{ #category : #'*BaselineOfDynabook' }
+{ #category : '*BaselineOfDynabook' }
 BaselineOf class >> isDynabook [
 	^ false
 ]

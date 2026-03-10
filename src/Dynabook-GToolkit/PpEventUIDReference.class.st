@@ -1,15 +1,16 @@
 Class {
-	#name : #PpEventUIDReference,
-	#superclass : #DbObjectUIDReference,
-	#category : #'Dynabook-GToolkit'
+	#name : 'PpEventUIDReference',
+	#superclass : 'DbObjectUIDReference',
+	#category : 'Dynabook-GToolkit',
+	#package : 'Dynabook-GToolkit'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PpEventUIDReference class >> leJsonV4Name [
 	^ 'ppEventUIDReference'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PpEventUIDReference >> detectUID: anObject ifNone: noneBlock [
 	"anObject - must respond to olDetectUIDBlock. See implementors"
 
@@ -19,7 +20,7 @@ PpEventUIDReference >> detectUID: anObject ifNone: noneBlock [
 	^ noneBlock value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PpEventUIDReference >> initialize [
 	super initialize.
 	self sourceClassName: PpEventLog

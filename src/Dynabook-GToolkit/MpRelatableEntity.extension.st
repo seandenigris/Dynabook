@@ -1,6 +1,6 @@
-Extension { #name : #MpRelatableEntity }
+Extension { #name : 'MpRelatableEntity' }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 MpRelatableEntity >> lepiterPageTitle [
 	^ self fullName
 ]

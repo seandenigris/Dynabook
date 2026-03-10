@@ -1,6 +1,6 @@
-Extension { #name : #DataSeries }
+Extension { #name : 'DataSeries' }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 DataSeries >> chart [
 	| aData aBarWidthScale |
 	aData := GtPlotterDataGroup new values: self sortDescending associations.
@@ -18,7 +18,7 @@ DataSeries >> chart [
 		with: aData
 ]
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 DataSeries >> chartTitled: aString [
 
 	| label |

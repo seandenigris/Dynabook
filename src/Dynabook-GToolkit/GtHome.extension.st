@@ -1,13 +1,13 @@
-Extension { #name : #GtHome }
+Extension { #name : 'GtHome' }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 GtHome >> dynabookDomainSection [
 	<gtHomeSection>
 	
 	^ DbGtHomeDomainSection new
 ]
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 GtHome >> dynabookUtilitiesSection [
 	<gtHomeSection>
 	

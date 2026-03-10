@@ -1,1 +1,1 @@
-Package { #name : #'Dynabook-GToolkit' }
+Package { #name : 'Dynabook-GToolkit' }

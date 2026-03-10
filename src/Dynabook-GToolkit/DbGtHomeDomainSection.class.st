@@ -1,10 +1,11 @@
 Class {
-	#name : #DbGtHomeDomainSection,
-	#superclass : #GtHomeMultiCardSection,
-	#category : #'Dynabook-GToolkit'
+	#name : 'DbGtHomeDomainSection',
+	#superclass : 'GtHomeMultiCardSection',
+	#category : 'Dynabook-GToolkit',
+	#package : 'Dynabook-GToolkit'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> addressBookCard [
 	<gtSectionCard>
 	
@@ -16,7 +17,7 @@ DbGtHomeDomainSection >> addressBookCard [
 		inspecting: [ MpAddressBook uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> booksCard [
 	<gtSectionCard>
 	
@@ -28,7 +29,7 @@ DbGtHomeDomainSection >> booksCard [
 		inspecting: [ VsBooks personal ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> dailyNoteCard [
 	<gtSectionCard>
 	
@@ -43,12 +44,12 @@ DbGtHomeDomainSection >> dailyNoteCard [
 			LeDatabasesRegistry defaultPrimaryDatabase addPage: page ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> defaultPriority [
 	^ 10
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> eventLogCard [
 	<gtSectionCard>
 	
@@ -60,12 +61,12 @@ DbGtHomeDomainSection >> eventLogCard [
 		inspecting: [ PpEventLog uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> iconFolder [
 	^ BaselineOfDynabook iconFolder
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> inventoryCard [
 	<gtSectionCard>
 	
@@ -77,7 +78,7 @@ DbGtHomeDomainSection >> inventoryCard [
 		inspecting: [ PpInventory uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> livingLibraryCard [
 	<gtSectionCard>
 	
@@ -89,7 +90,7 @@ DbGtHomeDomainSection >> livingLibraryCard [
 		inspecting: [ LlLibrary uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> locationsCard [
 	<gtSectionCard>
 	
@@ -101,7 +102,7 @@ DbGtHomeDomainSection >> locationsCard [
 		inspecting: [ PpLocationList uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> networkedDevicesCard [
 	<gtSectionCard>
 	
@@ -113,7 +114,7 @@ DbGtHomeDomainSection >> networkedDevicesCard [
 		inspecting: [ CwNetworkDevice db ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> projectListCard [
 	<gtSectionCard>
 	
@@ -125,7 +126,7 @@ DbGtHomeDomainSection >> projectListCard [
 		inspecting: [ PpProjectList uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> resourceLibraryCard [
 	<gtSectionCard>
 	
@@ -137,13 +138,13 @@ DbGtHomeDomainSection >> resourceLibraryCard [
 		inspecting: [ RlResourceLibrary uniqueInstance ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> sectionTitle [
 
 	^ 'Dynabook'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DbGtHomeDomainSection >> softwareCatalogCard [
 	<gtSectionCard>
 	

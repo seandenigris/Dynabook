@@ -1,19 +1,20 @@
 Class {
-	#name : #DbGtHomeUtilitiesSection,
-	#superclass : #GtHomeMultiCardSection,
+	#name : 'DbGtHomeUtilitiesSection',
+	#superclass : 'GtHomeMultiCardSection',
 	#classVars : [
 		'DataDB'
 	],
-	#category : #'Dynabook-GToolkit'
+	#category : 'Dynabook-GToolkit',
+	#package : 'Dynabook-GToolkit'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbGtHomeUtilitiesSection class >> dataDB: anSpFileDatabaseClass [
 
 	DataDB := anSpFileDatabaseClass
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeUtilitiesSection >> baselineCard [
 	<gtSectionCard>
 
@@ -30,7 +31,7 @@ DbGtHomeUtilitiesSection >> baselineCard [
 				from: card ]
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeUtilitiesSection >> bridgeCard [
 	<gtSectionCard>
 
@@ -44,7 +45,7 @@ DbGtHomeUtilitiesSection >> bridgeCard [
 			UIManager default inform: 'Python Bridge Restarted' ]
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeUtilitiesSection >> dataCard [
 	<gtSectionCard>
 
@@ -56,28 +57,28 @@ DbGtHomeUtilitiesSection >> dataCard [
 		inspecting: [ self dataDB ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbGtHomeUtilitiesSection >> dataDB [
 	^ DataDB ifNil: [ DynabookDB ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbGtHomeUtilitiesSection >> defaultPriority [
 	^ 20
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DbGtHomeUtilitiesSection >> iconFolder [
 	^ BaselineOfDynabook iconFolder
 ]
 
-{ #category : #'api - instantiation' }
+{ #category : 'api - instantiation' }
 DbGtHomeUtilitiesSection >> sectionTitle [
 	
 	^ 'Dynabook - Utilities'
 ]
 
-{ #category : #stencils }
+{ #category : 'stencils' }
 DbGtHomeUtilitiesSection >> updateHomeCard [
 	<gtSectionCard>
 

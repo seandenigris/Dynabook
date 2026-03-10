@@ -67,6 +67,16 @@ DbSoup >> gtSpotterSearchesInContext: aSpotterContext [
 	^ spotterSources flatCollect: [ :source | source gtSpotterSearchesInContext: aSpotterContext ].
 ]
 
+{ #category : 'as yet unclassified' }
+DbSoup >> sourceAdd: aDbObjectUIDReference [
+
+	self sources 
+		detect: [ :existingSource | existingSource = aDbObjectUIDReference ]
+		ifFound: [ :existingSource | self sources remove: existingSource ].
+		
+	self sources add: aDbObjectUIDReference
+]
+
 { #category : 'accessing' }
 DbSoup >> sources [
 

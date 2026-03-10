@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*Dynabook-GToolkit' }
+{ #category : '*Dynabook-GToolkit' }
 Object >> gtMagritteFor: aView [
 
 	<gtView>

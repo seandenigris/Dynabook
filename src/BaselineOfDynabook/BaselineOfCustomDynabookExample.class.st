@@ -1,15 +1,16 @@
 Class {
-	#name : #BaselineOfCustomDynabookExample,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfDynabook
+	#name : 'BaselineOfCustomDynabookExample',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfDynabook',
+	#package : 'BaselineOfDynabook'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfCustomDynabookExample class >> dataFolder [
 	^ FileLocator dynabookData / 'Dynabook'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 BaselineOfCustomDynabookExample class >> pipEnvPostLoad [
 	| pyBridgeFolder |
 	pyBridgeFolder := FileLocator imageDirectory / 'PythonBridgeRuntime'.
@@ -22,7 +23,7 @@ BaselineOfCustomDynabookExample class >> pipEnvPostLoad [
 	BaselineOfDynabook pipEnvPostLoad
 ]
 
-{ #category : #setup }
+{ #category : 'setup' }
 BaselineOfCustomDynabookExample class >> setUp [
 
 	| homebrewBinaryFolder homebrewInstalled msalAppIdFile |
@@ -55,7 +56,7 @@ BaselineOfCustomDynabookExample class >> setUp [
 	DbMsalApp id: msalAppIdFile contents.
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfCustomDynabookExample >> baseline: spec [
 	<baseline>
 
@@ -76,7 +77,7 @@ BaselineOfCustomDynabookExample >> baseline: spec [
 				spec requires: #('Fuel' 'MyAdditionalCoolComponent') ] ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfCustomDynabookExample >> customProjectAttributes [
 
 	^ self isGTImage
@@ -84,19 +85,19 @@ BaselineOfCustomDynabookExample >> customProjectAttributes [
 		ifFalse: [ #(notGToolkit) ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfCustomDynabookExample >> fuelPreLoad [
 	BaselineOfDynabook fuelPreLoad
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BaselineOfCustomDynabookExample >> isGTImage [
 	
 	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'Lepiter-' ].
 	"Implementation note: used to check for GToolkit prefix, but P7 has a GToolkit-Examples package. Lepiter, OTOH, could only be loaded in a GT image"
 ]
 
-{ #category : #loading }
+{ #category : 'loading' }
 BaselineOfCustomDynabookExample >> postLoad [
 
 	self class setUp

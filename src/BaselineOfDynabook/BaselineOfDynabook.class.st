@@ -62,12 +62,13 @@ Our GTooklit Home Section uses the following icons from [Noun Project](https://t
 2. [Smalltalk: Design Principles Behind Smalltalk](http://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html)
 "
 Class {
-	#name : #BaselineOfDynabook,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfDynabook
+	#name : 'BaselineOfDynabook',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfDynabook',
+	#package : 'BaselineOfDynabook'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfDynabook class >> componentSectionString [
 
 	| componentList template |
@@ -87,7 +88,7 @@ The following projects are the core components:
 		#componentList -> componentList } asDictionary.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfDynabook class >> coreBaselines [
 	| classesForVersion projects |
 	classesForVersion := [ :v |
@@ -104,17 +105,17 @@ BaselineOfDynabook class >> coreBaselines [
 	^ projects select: #isDynabook
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfDynabook class >> coreProjects [
 	^ self coreBaselines collect: [ :bl | SmallProjectRegistry uniqueInstance detectForBaseline: bl ]
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 BaselineOfDynabook class >> dataFolder [
 	^ FileLocator dynabookData / 'Dynabook'
 ]
 
-{ #category : #utilites }
+{ #category : 'utilites' }
 BaselineOfDynabook class >> fuelPreLoad [
 	"Needed for Fuel 5.1.0 to load cleanly (at least on GT)"
 
@@ -128,7 +129,7 @@ BaselineOfDynabook class >> fuelPreLoad [
 	fuelPackages do: #removeFromSystem
 ]
 
-{ #category : #utilites }
+{ #category : 'utilites' }
 BaselineOfDynabook class >> lepiterReloadLogicalDBFromPropertiesFile: aFileReference [
 
 	| props |
@@ -141,14 +142,14 @@ BaselineOfDynabook class >> lepiterReloadLogicalDBFromPropertiesFile: aFileRefer
 		reload.
 ]
 
-{ #category : #utilites }
+{ #category : 'utilites' }
 BaselineOfDynabook class >> pipEnvPostLoad [
 	
 	PBApplication cwInstallAllModules.
 	BaselineOfLivingLibrary pipEnvPostLoad.
 ]
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfDynabook >> baseline: spec [
   <baseline>
 
@@ -208,50 +209,15 @@ BaselineOfDynabook >> baseline: spec [
 			package: #'Dynabook-GToolkit' with: [ spec requires: #(ObjectiveLepiter PharoEnhancements) ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfDynabook >> customProjectAttributes [
 	^ self isGTImage
 			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
 ]
 
-{ #category : #accessing }
-BaselineOfDynabook >> gtPostLoad [
-	
-	self postLoad.
-	
-	self olReferenceBuilderMap keysAndValuesDo: [ :aClass :aBlock |
-		OlObjectPageType 
-			modelReferenceForClass: aClass 
-			builder: aBlock ].
-					
-	QuLeSources providers: { 
-
-		DbObjectUIDReference new
-			sourceClass: LlLibrary;
-			yourself.
-			
-		DbObjectUIDReference new
-			sourceClass: LlWorkplace;
-			yourself.
-			
-		PpEventUIDReference new
-			sourceClass: PpEventLog;
-			yourself.
-			
-		QuSnippetSource new.
-	} asOrderedCollection.
-]
-
-{ #category : #testing }
-BaselineOfDynabook >> isGTImage [
-	
-	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'Lepiter-' ].
-	"Implementation note: used to check for GToolkit prefix, but P7 has a GToolkit-Examples package. Lepiter, OTOH, could only be loaded in a GT image"
-]
-
-{ #category : #accessing }
-BaselineOfDynabook >> olReferenceBuilderMap [
+{ #category : 'accessing' }
+BaselineOfDynabook >> dbReferenceBuilderMap [
 	
 		^ Dictionary new
 			at: CwSoftware put: [ 
@@ -306,9 +272,40 @@ BaselineOfDynabook >> olReferenceBuilderMap [
 			yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+BaselineOfDynabook >> gtPostLoad [
+	
+	self postLoad.
+	
+	self olBuildReferenceMap.
+					
+	QuLeSources providers: { 
+
+		DbObjectUIDReference new
+			sourceClass: LlLibrary;
+			yourself.
+			
+		DbObjectUIDReference new
+			sourceClass: LlWorkplace;
+			yourself.
+			
+		PpEventUIDReference new
+			sourceClass: PpEventLog;
+			yourself.
+			
+		QuSnippetSource new.
+	} asOrderedCollection.
+]
+
+{ #category : 'testing' }
+BaselineOfDynabook >> isGTImage [
+	
+	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'Lepiter-' ].
+	"Implementation note: used to check for GToolkit prefix, but P7 has a GToolkit-Examples package. Lepiter, OTOH, could only be loaded in a GT image"
+]
+
+{ #category : 'accessing' }
 BaselineOfDynabook >> postLoad [
 	
-	self olReferenceBuilderMap do: [ :aBlock |
-		DbSoup uniqueInstance sources add: aBlock value ].
+	self dbSoupAddSources
 ]
