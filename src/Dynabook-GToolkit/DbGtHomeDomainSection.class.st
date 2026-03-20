@@ -5,7 +5,7 @@ Class {
 	#package : 'Dynabook-GToolkit'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> addressBookCard [
 	<gtSectionCard>
 	
@@ -17,7 +17,7 @@ DbGtHomeDomainSection >> addressBookCard [
 		inspecting: [ MpAddressBook uniqueInstance ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> booksCard [
 	<gtSectionCard>
 	
@@ -29,7 +29,7 @@ DbGtHomeDomainSection >> booksCard [
 		inspecting: [ VsBooks personal ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> dailyNoteCard [
 	<gtSectionCard>
 	
@@ -49,7 +49,7 @@ DbGtHomeDomainSection >> defaultPriority [
 	^ 10
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> eventLogCard [
 	<gtSectionCard>
 	
@@ -66,7 +66,7 @@ DbGtHomeDomainSection >> iconFolder [
 	^ BaselineOfDynabook iconFolder
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> inventoryCard [
 	<gtSectionCard>
 	
@@ -78,7 +78,7 @@ DbGtHomeDomainSection >> inventoryCard [
 		inspecting: [ PpInventory uniqueInstance ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> livingLibraryCard [
 	<gtSectionCard>
 	
@@ -90,7 +90,7 @@ DbGtHomeDomainSection >> livingLibraryCard [
 		inspecting: [ LlLibrary uniqueInstance ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> locationsCard [
 	<gtSectionCard>
 	
@@ -102,7 +102,7 @@ DbGtHomeDomainSection >> locationsCard [
 		inspecting: [ PpLocationList uniqueInstance ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> networkedDevicesCard [
 	<gtSectionCard>
 	
@@ -114,7 +114,7 @@ DbGtHomeDomainSection >> networkedDevicesCard [
 		inspecting: [ CwNetworkDevice db ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> projectListCard [
 	<gtSectionCard>
 	
@@ -126,7 +126,7 @@ DbGtHomeDomainSection >> projectListCard [
 		inspecting: [ PpProjectList uniqueInstance ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> resourceLibraryCard [
 	<gtSectionCard>
 	
@@ -144,7 +144,7 @@ DbGtHomeDomainSection >> sectionTitle [
 	^ 'Dynabook'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'stencils' }
 DbGtHomeDomainSection >> softwareCatalogCard [
 	<gtSectionCard>
 	
