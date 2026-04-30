@@ -146,7 +146,7 @@ BaselineOfDynabook class >> lepiterReloadLogicalDBFromPropertiesFile: aFileRefer
 BaselineOfDynabook class >> pipEnvPostLoad [
 	
 	PBApplication cwInstallAllModules.
-	BaselineOfLivingLibrary pipEnvPostLoad.
+	BaselineOfResourcesLive pipEnvPostLoad.
 ]
 
 { #category : 'baseline' }
