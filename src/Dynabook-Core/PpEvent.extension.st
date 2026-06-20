@@ -1,7 +1,16 @@
 Extension { #name : 'PpEvent' }
 
 { #category : '*Dynabook-Core' }
-PpEvent >> ensureRecording [
+PpEvent >> oneNotePage [
+
+	^ self 
+		propertyAt: #oneNotePageID
+		ifPresent: [ :pageID | 
+			DbMsalApp uniqueInstance oneNote pageWithID: pageID ]
+]
+
+{ #category : '*Dynabook-Core' }
+PpEvent >> recordingEnsure [
 	^ self propertyAt: #recording ifAbsentPut: [ 
 		| recording |
 		recording := DbEventRecording of: self.
@@ -10,15 +19,6 @@ PpEvent >> ensureRecording [
 ]
 
 { #category : '*Dynabook-Core' }
-PpEvent >> hasRecording [
+PpEvent >> recordingExists [
 	^ self hasProperty: #recording
-]
-
-{ #category : '*Dynabook-Core' }
-PpEvent >> oneNotePage [
-
-	^ self 
-		propertyAt: #oneNotePageID
-		ifPresent: [ :pageID | 
-			DbMsalApp uniqueInstance oneNote pageWithID: pageID ]
 ]
