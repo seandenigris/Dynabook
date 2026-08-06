@@ -4,6 +4,5 @@ Extension { #name : 'CwSoftware' }
 CwSoftware >> transactions [
 
   ^ VsBooks personal generalJournal iterator
-    | [ :t | t splits anySatisfy: [ :s | s subject = self ] ] selectIt
-    > VsGeneralJournal
+    | [ :t | t splitsPrivate anySatisfy: [ :s | s subject = self ] ] selectIt > VsGeneralJournal
 ]
