@@ -271,6 +271,10 @@ BaselineOfDynabook >> dbReferenceBuilderMap [
 					sourceGetter: #yourself; "class-side"
 					collectionGetter: #accountsAll;
 					yourself ];
+			at: VsAgreement put: [ 
+				DbObjectUIDReference new
+					sourceClass: VsAgreementFile;
+					yourself ];
 			at: VsPrice put: [ 
 				DbObjectUIDReference new
 					sourceClass: VsPriceList;
